@@ -1,0 +1,111 @@
+.qqlh{
+    background: url(images/QQ2.png)0 0;
+    display: inline-block;
+    width:23px;
+    height: 34px;
+  }
+  .pael_center{margin:0px auto;overflow: hidden;}
+  .bigregister{
+    position: relative;
+    margin: 0 auto;
+    width: 480px; 
+    margin-top:50px;
+  }
+.header{
+    position:fixed;
+    width: 135px;
+    height: 61px;
+    padding: 18px 0 0 30px;
+    font-size: 38px;
+  }
+.left{
+    float:left;
+}
+.tips{
+float: right;
+margin: 10px 30px 0 0;
+width: 100px;
+border-radius: 6px;
+padding: 10px 0 0;
+}
+.content{
+    margin: 10px 0 0 0px;
+    line-height: 24px;
+    font-size: 16px;
+    opacity: .5;
+}
+.middle{
+    width: 480px;
+    height: 112px;
+    margin-bottom: 64px;
+}
+.welcome{
+    width:480px;
+    height: 58px;
+    margin-bottom:20px;
+    font-size: 44px;
+}
+.t{
+    width:480px;
+    height:33px;
+    margin-bottom: 64px;
+    line-height: 1.2;
+}
+.everyday{
+    margin-top:10px;
+    font-size: 12px;
+    color:#333;
+}
+.www{
+    text-decoration: none;
+    color: rgb(200, 210, 238);
+}
+.free{
+    font-size: 24px;
+    cursor: pointer;
+    float:right;
+}
+.placeholder{
+    position: absolute;
+    font-size: 20px;line-height: 20px;
+    padding: 16px 20px;
+    background: #fff;
+    z-index: -1;
+    font-weight: lighter;
+    color: #aaa;
+}
+.input{
+    border: 1px #aaa solid;
+    border-radius: 4px;
+    background: 0 0;/*设置透明色，占位的字才能显示*/
+    font-size: 20px;
+    height: 50px;
+    line-height: 50px;
+    padding: 0 20px;
+}
+.distance{
+    width: 438px;
+}
+.submit{
+    border-radius: 4px;
+    width: 478px;
+    height: 60px;
+    margin: 40px 0 8px;
+    font-size: 24px;
+    background-color:rgb(114, 124, 216);
+    border: #3083ff;color: #fff;
+    box-shadow: 0 5px 8px 0 rgb(24 95 255 / 10%);
+}
+.reminder{
+    font-size: 14px;
+    height: 16px;
+    color: #999;
+    white-space: nowrap;
+}
+.ill{
+    width:auto;
+    height:14px;
+    font-size: 12px;
+    color: red;
+    padding: 10px;
+}

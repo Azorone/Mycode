@@ -1,0 +1,54 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    /* background:url(images/±³¾°.JPG); */
+    background-color: #e3e7e9;  
+}
+.back img{
+    float: left;
+}
+.bigbox{
+    width: 341px;
+    height: 320px;
+    margin-top: 63px;
+    border-radius: 10px;
+    float: left;
+    margin-left: 141px;
+    background-color: white;
+    padding: 7px 60px;
+}
+.bigbox h1{
+    line-height: 50px;
+    font-size: 24px;
+    font-family: "Î¢ÈíÑÅºÚ";
+    color: black;
+}
+.inputtext{
+    margin-top: 20px;
+}
+.inputtext input{
+    padding: 2px 6px;
+    border:0;
+    border-bottom: 1px solid rgb(114, 112, 112);
+    color: rgba(2, 6, 10, 0.52);
+    background-color: #00000000;
+    height: 30px;
+}
+.register{
+    height: 24px;
+    width: 100px;
+    color: white;
+    margin-top: 30px;
+    border-radius: 10px;
+    border:0;
+    background-color:  rgb(114, 124, 216);
+}
+.inputbutton{
+    height: 24px;
+    width: 100px;
+    color: white;
+    margin-top: 30px;
+    border-radius: 10px;
+    border:0;
+    background-color:  rgb(114, 124, 216);
+}

@@ -1,0 +1,168 @@
+<!DOCTYPE >
+<html lang="en">
+<head>
+    <meta charset="GBK">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>上传商品</title>
+</head>
+<link rel="stylesheet" href="CSS/upPrduct.css">
+<link rel="stylesheet" href="CSS/aside.css" />
+<script src="js/jquery-3.6.0.js"></script>
+<script>
+    let product=null;                                //获取填充
+    $(document).ready(function (){
+        $.ajax({
+            type:"POST",
+            url:"getAlterP",
+            success:function (result){
+                product = jQuery.parseJSON(result);
+
+                getdataProductNews(product)
+
+            }
+        })
+
+    })
+    /*function addCart(button){
+        console.log("按钮被点击");
+        data1 = "A"
+        console.log(data1);
+        $.ajax({
+            type:"POST",
+            url:"",
+            data:"pid="+product.productID+"&Psta="+data1,
+            success:function (result){
+                alert(result)
+
+            }
+        })
+
+
+    }*/
+
+
+    function getdataProductNews(result) {
+
+          $("#Pclass").val(result.productClass);
+          $("#PName").val(result.productName);
+        $("#Pprice").val(result.productPrice);
+        $("#Pnews").val(result.productDescribe);
+        $("#adress").val(result.adress);
+        $("#Ptime").val(result.getProductTime);
+        $("#Pphon").val(result.phone);
+    }
+
+
+</script>
+
+<body>
+<div class="containeraside">
+    <div class="navigation">
+        <ul>
+            <li>
+                <a href="MainPage.html">
+                    <span class="icon"><i class="fa fa-home"></i></span>
+                    <span class="title">主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="icon"><i class="fa fa-user"></i></span>
+                    <span class="title">用户</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                        <span class="icon"
+                        ><i class="fa fa-comment"></i
+                        ></span>
+                    <span class="title">留言</span>
+                </a>
+            </li>
+            <!--
+           <li>
+            <a href="#">
+                <span class="icon"><i class="fa fa-question-circle"></i></span>
+                <span class="title">Help</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <span class="icon"><i class="fa fa-cog"></i></span>
+                <span class="title">Setting</span>
+            </a>
+        </li>
+    -->
+            <li>
+                <a href="Login.html">
+                    <span class="icon"><i class="fa fa-lock"></i></span>
+                    <span class="title">登录</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                        <span class="icon"
+                        ><i class="fa fa-sign-out"></i
+                        ></span>
+                    <span class="title">登出</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="toggle"></div>
+</div>
+<script>
+    const navigation = document.querySelector(".navigation");
+    document.querySelector(".toggle").onclick = function () {
+        this.classList.toggle("active");
+        navigation.classList.toggle("active");
+    };
+</script>
+
+
+
+
+<div class="contersspp">
+    <div>
+        <img src="images/logo1.png" alt="" srcset="" width="200px" style="margin-left: 10px;">  <span style="font-size: 30px; font-weight: 900; color: rgb(235, 182, 182);">》》</span> <span style="font-size: 30px; font-weight: 2000; font-family: 幼圆;">移通藏宝阁</span>
+        <hr>
+    </div>
+    <div>
+        <h3 style="margin-left: 30px; margin-top: 10px; font-family: 幼圆; color: rgb(78, 54, 54);">修改商品属性</h3>
+        <div style=" position: absolute;  width: 800px; margin-left: -400px; margin-right: -400px; left: 50%; ">
+            <form action="alterP" method="post" >
+                <div>
+
+                    <p class="p1"> <label for="">商品种类：</label> <input  type="text" list="typelist" placeholder="请选择" class="input2"  required="required" name="productClass" id="Pclass">
+                        <datalist id="typelist">
+                            　　<option>衣服</option>
+                            　　<option>文具</option>
+                            <option>电子产品</option>
+                            <option>书本</option>
+                            <option>宿舍神器</option>
+                            <option>其它</option>
+                        </datalist>  </p>
+                    <p class="p1"><label for="">商品名称：</label>   <input type="text" class="input2"  required="required" name="productName" id="PName"></p>
+                    <p class="p1"><label>商品价格：</label> <input type="text" class="input2"  required="required" name="productPrice" id="Pprice">  <span>元</span> </p>
+                    <p class="p1"><label for="">商品描述：</label><textarea name="productDescribe" cols="30" rows="10"  required="required" style="min-height:100px;min-width:300px;max-height:50px;max-width:70px; margin-left: 10px; border-radius: 15px; border-color: rgb(7, 7, 105);" id="Pnews"></textarea></p>
+                </div>
+                <hr>
+                <p class="p1"><label for="">取货地址：</label> <input type="text"  required="required" name="adress" id="adress"> </p>
+
+                <p class="p1"><label for="">发货时间：</label><input type="datetime-local"   required="required" name="getProductTime" id="Ptime"></p>
+                <p class="p1"><label for="">联系电话：</label> <input type="text"  required="required" name="phone" id="Pphon"> </p>
+
+                <div style="position: absolute; margin-left: 10px; margin-right: 10px; left: 40%;"><input type="submit" value="上传" style="width: 100px; height: 30px;">  <input type="reset" value="全部重置" style="width: 100px;height: 30px;"></div>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="js/jquery-3.6.0.js"></script>
+<link
+        rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+/>
+<script src="js/jquery-3.6.0.js"></script>
+</body>
+</html>

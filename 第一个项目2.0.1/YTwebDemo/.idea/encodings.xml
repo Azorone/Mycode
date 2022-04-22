@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/src/Dao/cartDAO.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/MainClass/Cart.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/MainClass/User.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/Tool/ChickString.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/Tool/FileWoring.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/WebFilter/FilterCode.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/WebFilter/Filterlogin.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/WebServlet/ServletAddProduct.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/WebServlet/ServletProctControl.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/WebServlet/ServletProduct.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/WebServlet/ServletsellProduct.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/WebServletNews/ServletPage.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/WebServletNews/ServletaddNews.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/WebServletNews/ServletalterNews.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/WebServletNews/ServletdeletNews.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/WebServletNews/ServletgetANews.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/WebServletNews/ServletgetAllNews.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/WebServletNews/Servletserch.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/WebServletTrade/ServletDelectOrder.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/WebServletTrade/ServletGetCarts.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/WebServletTrade/ServletGetMybuyOrder.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/WebServletTrade/ServletLikeProduct.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/WebServletTrade/ServletPaOrder.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/WebServletTrade/ServletUpOrterSta.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/WebServletTrade/ServletgetMySellOrder.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/WebServletTrade/ServletgetWaitSentOrder.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/WebServletUser/ServletgetUser.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/WebServletp/ServletAPNews.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/WebServletp/ServletDelectProduct.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/WebServletp/ServletProductClass.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/WebServletp/ServletProductClassPage.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/WebServletp/ServletalterProduct.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/WebServletp/ServletgetProduct.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/Working/NewsWoring.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/Working/ShowProduct.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/Working/Trade.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web/CSS/a.css" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/web/CSS/aside.css" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/web/CSS/card.css" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/web/CSS/cardProduct.css" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/web/CSS/cardli.css" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/web/CSS/login.css" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/web/CSS/products.css" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/web/CSS/register.css" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/web/CSS/styleLogin.css" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/web/CSS/user.css" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/web/js/NewsHall.js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/web/js/Registerscript.js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/web/js/banner.js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/web/js/card.js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/web/js/classcopy.js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/web/js/jquery-3.6.0.js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/web/js/jquery.cookie.js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/web/js/productManger.js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/web/js/productNews.js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/web/js/script.js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/web/js/userscript.js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/web/login01.html" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/web/mainHtml.html" charset="UTF-16" />
+    <file url="PROJECT" charset="GBK" />
+  </component>
+</project>

@@ -1,0 +1,166 @@
+<!DOCTYPE>                <!--去掉了html，解决本地css加载失败-->
+<html lang="en">
+<head>
+    <meta charset="GBK">
+    <meta http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>欢迎使用移通藏宝阁</title>
+    <link href="CSS/a.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet"   href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet"   href="CSS/asidecopy.css">
+    <link rel="stylesheet"   href="CSS/user.css">
+    <link rel="stylesheet" href="CSS/card.css">
+    <link rel="stylesheet" href="CSS/cardProduct.css">
+
+    <script src="js/jquery-3.6.0.js"></script>
+     <script>
+              
+            $(document).ready(function () {
+
+                getClassp();
+            });
+     </script>
+  <style>
+      img {
+          max-width: 100%;
+      }
+  </style>
+</head>
+<body id="body" onload="" >
+    <div id="dis3">
+    <div class="containeraside">
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="MainPage.html">
+                        <span class="icon"><i class="fa fa-home"></i></span>
+                        <span class="title">主页</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="indexB.html">
+                        <span class="icon"><i class="fa fa-user"></i></span>
+                        <span class="title">用户</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><i class="fa fa-comment"></i></span>
+                        <span class="title">留言</span>
+                    </a>
+                </li>
+               <!--
+                   <li>
+                    <a href="#">
+                        <span class="icon"><i class="fa fa-question-circle"></i></span>
+                        <span class="title">Help</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><i class="fa fa-cog"></i></span>
+                        <span class="title">Setting</span>
+                    </a>
+                </li>
+            --> 
+                <li>
+                    <a href="Login.html">
+                        <span class="icon"><i class="fa fa-lock"></i></span>
+                        <span class="title">登录</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="DelectLogin">
+                        <span class="icon"><i class="fa fa-sign-out"></i></span>
+                        <span class="title">登出</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="toggle"></div>
+    </div>
+    <script>
+        const navigation = document.querySelector('.navigation');
+        document.querySelector('.toggle').onclick = function(){
+            this.classList.toggle('active');
+            navigation.classList.toggle('active');
+        }
+    </script>
+
+    <div class="all" style="position: absolute; margin-right: -500px;margin-left: -500px;left: 50%">
+        <div class="header">
+            <div class="logo"><img src="images/logo1.png" width="150px" height="30px"/></div>
+            <div class="searchbox">
+                <form action="#">
+                    <div class="search-text" class="border-hover">淘一淘</div>
+                    <input type="text" id="search" class="border-hover"/>
+                    <div id="search_icon" class="border-hover"><img src="images/搜索.png" width="20px" height="20px"/></div>
+                </form>
+            </div>
+            <div class="other_iconbox other_info">
+                <div class="disp">
+                    <a href="#">常见问题</a>
+                </div>
+                <div class="disp">
+                    <a href="#">欢迎，打工人</a>
+                </div>
+                <div class="disp">
+                    <a href="#">消息</a>
+                </div>
+            </div>
+        </div>
+     
+        <div id="menu" style="margin-top: 100px; ">
+            <button class="btn2" id="pbt1" >
+                <img src="images//搜索.png" width="20px" height="20px"/>
+                <p>失物招领</p>
+            </button>
+            <button class="btn2" id="pbt2">
+                <img src="images//搜索.png" width="20px" height="20px"/>
+                <p>寻求帮助</p>
+            </button>
+            <button class="btn2" id="pbt3">
+                <img src="images//搜索.png" width="20px" height="20px"/>
+                <p>留言</p>
+            </button>
+            <button class="btn2" id="pbt4">
+                <img src="images//搜索.png" width="20px" height="20px"/>
+                <p>其它</p>
+            </button>
+             <button class="btn2" id="pbt5">
+                <img src="images//搜索.png" width="20px" height="20px"/>
+                <p>发布留言</p>
+            </button>
+            <button class="btn2" id="pbt6">
+                <img src="images//搜索.png" width="20px" height="20px"/>
+                <p>我的发布</p>
+            </button>
+      
+        </div>
+        <div id="part" style="width: 100%">
+           <hr>
+            <div id="display" style="padding-right:0px;width: 1000px;">
+                    <div class="showBox" >
+
+                        <ul class="ulshow" id="ul2" >
+
+
+                     </ul>
+                    </div>
+                    
+            </div>
+        </div>
+    </div>
+            <script src="js/NewsHall.js"></script>
+        <script src="js/searchclass.js"></script>
+
+        <script>
+            //获取列表中的原有内容
+
+            /*
+             * 监听滚动条，本来不想用jQuery但是发现js里面监听滚动条的事件不好添加，这边就引用了Jquery的$(obj).scroll();这个方法了
+             */
+         
+        </script>>
+</body>
+</html>

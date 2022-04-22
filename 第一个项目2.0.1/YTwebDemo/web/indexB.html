@@ -1,0 +1,283 @@
+<!DOCTYPE>                <!--去掉了html，解决本地css加载失败-->
+<html lang="en">
+<head>
+    <meta charset="GBK">
+    <meta http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品管理</title>
+ 
+    <link href="CSS/a.css" rel="stylesheet" type="text/css" />
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="CSS/asidecopy.css">
+    <link rel="stylesheet" href="CSS/user.css">
+    <script src="js/jquery-3.6.0.js"></script>
+
+     <script>
+              
+            $(document).ready(function () {
+
+            });
+     </script>
+</head>
+<body id="body" >
+    <div id="dis3">
+    <div class="containeraside">
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="MainPage.html">
+                        <span class="icon"><i class="fa fa-home"></i></span>
+                        <span class="title">主页</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="indexB.html">
+                        <span class="icon"><i class="fa fa-user"></i></span>
+                        <span class="title">用户</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="News.html">
+                        <span class="icon"><i class="fa fa-comment"></i></span>
+                        <span class="title">留言</span>
+                    </a>
+                </li>
+               <!--
+                   <li>
+                    <a href="#">
+                        <span class="icon"><i class="fa fa-question-circle"></i></span>
+                        <span class="title">Help</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><i class="fa fa-cog"></i></span>
+                        <span class="title">Setting</span>
+                    </a>
+                </li>
+            --> 
+                <li>
+                    <a href="Login.html">
+                        <span class="icon"><i class="fa fa-lock"></i></span>
+                        <span class="title">登录</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="DelectLogin">
+                        <span class="icon"><i class="fa fa-sign-out"></i></span>
+                        <span class="title">登出</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="toggle"></div>
+    </div>
+    <script>
+        const navigation = document.querySelector('.navigation');
+        document.querySelector('.toggle').onclick = function(){
+            this.classList.toggle('active');
+            navigation.classList.toggle('active');
+        }
+    </script>
+
+    <div class="all">
+        <div class="header">
+            <div class="logo"><img src="images/logo1.png" width="150px" height="30px"/></div>
+            <div class="searchbox">
+                <form action="#">
+                    <div class="search-text" class="border-hover">淘一淘</div>
+                    <input type="text" id="search" class="border-hover"/>
+                    <div id="search_icon" class="border-hover"><img src="images/搜索.png" width="20px" height="20px"/></div>
+                </form>
+            </div>
+            <div class="other_iconbox other_info">
+                <div class="disp">
+                    <a href="#">常见问题</a>
+                </div>
+                <div class="disp">
+                    <a href="#">欢迎，打工人</a>
+                </div>
+                <div class="disp">
+                    <a href="#">消息</a>
+                </div>
+            </div>
+        </div>
+        <div id="photo">
+            <img src="images/title.jpg" width="100%" height="200px"/>
+            
+            <br>
+           
+        </div>
+         <div style="margin-top: 50px;" ><a href=""><img src="images/default.jpg" width="100px" height="100px" style=" margin-left: 400px;"> <p align="center" id="nameP"></p></a></div>
+        <div id="menu">
+            <button class="btn2" id="pbt1" >
+                <img src="images/搜索.png" width="20px" height="20px"/>
+                <p>订单</p>
+            </button>
+            <button class="btn2" id="pbt2">
+                <img src="images/搜索.png" width="20px" height="20px"/>
+                <p>待送货</p>
+            </button>
+            <button class="btn2" id="pbt3">
+                <img src="images/搜索.png" width="20px" height="20px"/>
+                <p>购物车</p>
+            </button>
+            <button class="btn2" id="pbt4">
+                <img src="images/搜索.png" width="20px" height="20px"/>
+                <p>我的下单</p>
+            </button> 
+             <button class="btn2" id="pbt5">
+                <img src="images/搜索.png" width="20px" height="20px"/>
+                <p>商品</p>
+            </button>
+            <button class="btn2" id="pbt6">
+                <img src="images/搜索.png" width="20px" height="20px"/>
+                <p>添加商品</p>
+            </button>
+      
+        </div>
+        <div id="part" style="width: 1000px;">
+           <hr>
+            <div id="display" style="padding-right:0px;width: 1000px;">
+                    <div class="showBox">
+
+                        <ul class="ulshow" id="ul2">
+                <!--  <li class="lip"  >
+                          <h6 style="margin-left: 14px; margin-top: 14px;" id="cardh6">二手小刀</h6>
+                        
+                        <div  id="divimg" style="margin: 5px; width:96%; height: 60%; background-color: rgb(255, 254, 254); border-radius: 10px; overflow:hidden;" >
+                            <img   id="imgPrduct" src="3ead1c46-ac61-481a-9bf5-6c1176851db0.jpg" alt="" srcset="" width="300px">
+
+                        </div>
+                        <div   id="divNew" style="margin: 5px; font-weight: 600; color: rgb(19, 19, 19); font-family: 幼圆;">
+                           
+                            <p  id="puid">Id: 1234167-2021-10-29084734</p>
+                            <p id="pNumber"  style=" margin-left: 80%;">余量：5</p>
+                        </div>
+                        <div  id="divButton" style="position: absolute; width: 200px; height: 50px; margin-left: -50px;margin-right: -50px; left:30%;">
+                            <a href=""><button id="button1" style="width: 100px; height: 25px; margin-top: 0px; border-style: none; border-radius: 5px; background-color: rgb(215, 250, 250);color: rgb(82, 80, 80);">编辑</button></a>
+                            <a href=""><button  id="button2" style=" width: 80px; height: 25px;  margin-left: 5px; border-style: none; border-radius: 5px; background-color: rgb(215, 250, 250); color: rgb(82, 80, 80);">删除</button></a>
+                        </div>
+                    </li>
+                      <li class="lip" >
+                         <span>卖家：xxx</span> <span id="" style="margin-left: 40px; font-weight: 900; ">二手小刀</span>
+                        <div style="margin: 5px; width:96%; height: 60%; background-color: rgb(255, 254, 254); border-radius: 10px; overflow:hidden;" >
+                            <img src="3a6a393b-c0b9-4575-962a-80a80be20a6f.png" alt="3a6a393b-c0b9-4575-962a-80a80be20a6f.png" srcset="" width="300px" height="300px">
+
+                        </div>
+                        <div style="margin: 5px; font-weight: 600; color: rgb(19, 19, 19); font-family: 幼圆;">
+                           
+                            <p >Id: 1234167-2021-10-29084734</p>
+                            <p id="pPrice">价格：16.5元</p>
+                            <p style=" margin-left: 70%;">状态：未下单</p>
+                        </div>
+                        <div style="position: absolute; width: 200px; height: 50px; margin-left: -50px;margin-right: -50px; left:30%;">
+                            <a href=""><button style="width: 100px; height: 25px; margin-top: 0px; border-style: none; border-radius: 5px; background-color: rgb(215, 250, 250);color: rgb(82, 80, 80);">下单</button></a>
+                            <a href=""><button style=" width: 80px; height: 25px;  margin-left: 5px; border-style: none; border-radius: 5px; background-color: rgb(215, 250, 250); color: rgb(82, 80, 80);">删除</button></a>
+                        </div>
+
+                      </li>
+                      <li class="lip" >买家下货，但商家没有接受的订单
+                        <span>卖家：xxx </span> <span style="margin-left: 40px; font-weight: 900; ">二手小刀</span>
+                        <div style="margin: 5px; width:96%; height: 60%; background-color: rgb(255, 254, 254); border-radius: 10px; overflow:hidden;" >
+                            <img src="" alt="" srcset="" width="">
+
+                        </div>
+                        <div style="margin: 5px; font-weight: 600; color: rgb(19, 19, 19); font-family: 幼圆;">
+                           
+                            <p >Id: 1234167-2021-10-29084734</p>
+                            <p>价格：16.5元</p>
+                            <p id="PstaOrder" style=" margin-left: 60%;">状态：商家未接受</p>
+                        </div>
+                        <div style="position: absolute; width: 200px; height: 50px; margin-left: -50px;margin-right: -50px; left:30%;">
+                            <a href=""><button style="width: 100px; height: 25px; margin-top: 0px; border-style: none; border-radius: 5px; background-color: rgb(215, 250, 250);color: rgb(82, 80, 80);">取消订单</button></a>
+                           
+                        </div>
+                      </li>
+                      <li class="lip" >
+                        <span>买家：xxx </span> <span style="margin-left: 40px; font-weight: 900; ">二手小刀</span>
+                        <div style="margin: 5px; width:96%; height: 60%; background-color: rgb(255, 254, 254); border-radius: 10px; overflow:hidden;" >
+                            <img src="" alt="" srcset="" width="">
+
+                        </div>
+                        <div style="margin: 5px; font-weight: 600; color: rgb(19, 19, 19); font-family: 幼圆;">
+                           
+                            <p >Id: 1234167-2021-10-29084734</p>
+                            <p>价格：16.5元</p>
+                            <p style=" margin-left: 60%;">状态：未接受</p>
+                        </div>
+                        <div style="position: absolute; width: 200px; height: 50px; margin-left: -50px;margin-right: -50px; left:30%;">
+                            <a href=""><button style="width: 100px; height: 25px; margin-top: 0px; border-style: none; border-radius: 5px; background-color: rgb(215, 250, 250);color: rgb(82, 80, 80);">接受订单</button></a>
+                            <a href=""><button style=" width: 80px; height: 25px;  margin-left: 5px; border-style: none; border-radius: 5px; background-color: rgb(215, 250, 250); color: rgb(82, 80, 80);">拒绝</button></a>
+                        </div>
+                      </li>
+                      <li class="lip" >
+                        <span>卖家：xxx </span> <span style="margin-left: 40px; font-weight: 900; ">二手小刀</span>
+                        <div style="margin: 5px; width:96%; height: 60%; background-color: rgb(255, 254, 254); border-radius: 10px; overflow:hidden;" >
+                            <img src="" alt="" srcset="" width="">
+
+                        </div>
+                        <div style="margin: 5px; font-weight: 600; color: rgb(19, 19, 19); font-family: 幼圆;">
+                           
+                            <p >Id: 1234167-2021-10-29084734</p>
+                            <p>价格：16.5元</p>
+                            <p style=" margin-left: 65%;">状态：商家拒绝</p>
+                        </div>
+                        <div style="position: absolute; width: 200px; height: 50px; margin-left: -50px;margin-right: -50px; left:30%;">
+                            <a href=""><button style="width: 100px; height: 25px; margin-top: 0px; border-style: none; border-radius: 5px; background-color: rgb(215, 250, 250);color: rgb(82, 80, 80);">确 认</button></a>
+                            <a href=""><button style=" width: 80px; height: 25px;  margin-left: 5px; border-style: none; border-radius: 5px; background-color: rgb(215, 250, 250); color: rgb(82, 80, 80);">删除</button></a>
+                        </div>
+                      </li>
+                      <li class="lip" >
+                        <span>卖家：xxx </span> <span style="margin-left: 40px; font-weight: 900; ">二手小刀</span>
+                        <div style="margin: 5px; width:96%; height: 60%; background-color: rgb(255, 254, 254); border-radius: 10px; overflow:hidden;" >
+                            <img src="" alt="" srcset="" width="">
+
+                        </div>
+                        <div style="margin: 5px; font-weight: 600; color: rgb(19, 19, 19); font-family: 幼圆;">
+                           
+                            <p >取货时间：2021/11/1/0:49</p>
+                            <p>取货地点：花果书院咖啡厅打开就好的打卡机</p>
+                            <p style=" margin-left: 65%;">取货码：6541</p>
+                        </div>
+                        <div style="position: absolute; width: 200px; height: 50px; margin-left: -50px;margin-right: -50px; left:30%;">
+                            <a href=""><button style="width: 100px; height: 25px; margin-top: 0px; border-style: none; border-radius: 5px; background-color: rgb(215, 250, 250);color: rgb(82, 80, 80);">以收货</button></a>
+                        </div>
+                      </li>
+                      <li class="lip" >
+                        <span>买家：xxx </span> <span style="margin-left: 40px; font-weight: 900; ">二手小刀</span>
+                        <div style="margin: 5px; width:96%; height: 60%; background-color: rgb(255, 254, 254); border-radius: 10px; overflow:hidden;" >
+                            <img src="" alt="" srcset="" width="">
+
+                        </div>
+                        <div style="margin: 5px; font-weight: 600; color: rgb(19, 19, 19); font-family: 幼圆;">
+                           
+                            <p >取货时间：2021/11/1/0:49</p>
+                            <p>取货地点：花果书院咖啡厅打开就好的打卡机</p>
+                            <p style=" margin-left: 65%;">取货码：6541</p>
+                        </div>
+                        <div style="position: absolute; width: 200px; height: 50px; margin-left: -50px;margin-right: -50px; left:30%;">
+                            <a href=""><button style="width: 100px; height: 25px; margin-top: 0px; border-style: none; border-radius: 5px; background-color: rgb(215, 250, 250);color: rgb(82, 80, 80);">以发货</button></a>
+                        </div>
+                      </li>买家下货，但商家没有接受的订单-->
+                            <p style="font-size: 40px" > 欢迎使用移通藏宝阁！</p>
+                     </ul>
+                    </div>
+                    
+            </div>
+            <div id="pageNum">
+                <button>上一页</button>
+                <p id="num">1</p>
+                <button>下一页</button>
+            </div>
+        </div>
+    </div>
+        <script src="js/userscript.js"></script>
+        <script src="js/jquery.cookie.js"></script>>
+        <script>
+
+
+        </script>>
+</body>
+</html>

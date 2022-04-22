@@ -1,0 +1,56 @@
+<!DOCTYPE>
+<html lang="en">
+<head>
+    <meta charset="GBK">
+      <title>注册</title>
+    <link href="CSS/register.css"  rel="stylesheet"/>
+    <script src="js/ill.js"></script>
+</head>
+<body>
+    <div class="header">
+    </div>
+    <div class="pael_center">
+        <div class="tips">
+            <div class="content">意见反馈</div>
+        </div>  
+        <div class="tips">
+            <div class="content">中文</div>
+        </div>
+    </div>
+
+<div class="bigregister">
+    <div class="middle">
+        <div class="welcome">欢迎注册</div>
+        <div class="t">
+            <div class="left everyday">每一个闲置物品的安放平台，在下一站继续发光发热</div>
+            <div class="free">
+            <a href="MainPage.html" class="www">每日更新</a>
+            </div>
+        </div>
+    </div>
+        <form action="" method="post" name="re" id="register">
+                <input type="text" id="userID" name="userID" class="input distance" >
+                <div  class="ill"></div>
+                <input type="password" id="userPass" name="userPass"   class="input distance" placeholder="设置密码"  required>
+                <div  class="ill"></div>
+               <input type="password" id="userPass1" name="userPass1"   class="input distance" placeholder="输入相同密码"  required>
+                <div  class="ill"></div>
+                <input type="text" id="userAdress" name="userAdress"   class="input distance" placeholder="地址"  required >
+                <div  class="ill"></div>
+                <div>
+                    <div class="left">
+                        <input type="text" id="username" name="userName"   class="input" style="width: 112px;" placeholder="昵称" required onsubmit="ill()">
+                        <div  class="ill"></div>
+                    </div>
+                    <div style="float: right; ">
+                        <input style="width:280px; " id="userMail" name="userMail"  class="input" placeholder="输入QQ邮箱" required>
+                        <div  class="ill"></div>
+                    </div>
+                </div>
+                <input type="button" class="submit" value="立即注册" id="submit">
+            </div>
+    </form>
+</body>
+<script src="js/jquery-3.6.0.js"></script>
+<script src="js/register.js"></script>
+</html>

@@ -1,0 +1,51 @@
+.banner ul{
+    list-style: none;
+}
+.banner ol{
+    list-style: none;
+}
+.banner {
+    height: 500px;
+    width: 800px;
+    margin: 60px auto;
+    overflow: hidden;
+    position: relative;
+    margin: 60px auto;
+}
+.banner ul {
+    position: absolute;
+}
+.banner ul li {
+    height: 170px;
+}
+.banner:hover{
+    box-shadow:6px 10px 30px rgb(200, 210, 238);
+    transform: translate3d(0, -2px,0);
+    -webkit-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+}
+.banner ol {
+    position: absolute;
+    right: 20px;
+    bottom: 10px;
+}
+.banner ol li {
+    height: 5px;
+    width: 10px;
+    background: #808080;
+    border: solid 1px rgb(200, 210, 238);
+    border-radius: 3px;
+    margin-left: 10px;
+    color: rgb(200, 210, 238);
+    float: left;
+    line-height: center;
+    text-align: center;
+    cursor: pointer;
+}
+.banner ol li:hover{
+    background: #4e6ef2;
+}
+.banner ol .on {
+    background: #4e6ef2;
+    color: #fff;
+}

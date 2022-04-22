@@ -1,0 +1,84 @@
+.cardli{
+    display: list-item;
+    background-color: azure;
+  width: 260px;
+  height: 280px;
+  background-color: rgb(245, 245, 245); 
+  list-style: none;
+   margin: 20px;
+     border-style: none;
+     border-radius: 15px;
+     position: relative;
+    font-size: 15px;
+
+
+}
+
+.cardli:hover{
+  width: 270px;
+   height: 290px; 
+
+   list-style: none;
+    margin: 10px;
+      border-style:solid;
+      border-width: 2px;
+      border-color: rgb(13, 253, 253);
+      border-radius: 15px;
+    box-shadow: 10px 15px 30px rgb(0 0 0 /30%);
+    transform: translate3d(0, -2px,0);
+    -webkit-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+      
+  }
+/**卡片标题*/
+  .cardTitle{                                  
+    margin-left: 14px; margin-top: 14px;
+}
+/***卖家**/
+.sellName{
+
+
+
+
+}
+/**价格**/
+.ProductPrice{
+
+
+
+
+
+}
+/**种类**/
+.Productclass{
+
+
+
+}
+
+/**图片**/
+.ProductImg{
+ 
+  width: 300px;
+   max-height:80%;
+    min-height: 60%;
+
+}
+
+.divImg{
+  margin: 5px; 
+  width:96%;
+    min-height: 60%;
+    max-height: 70%;
+   background-color: rgb(255, 254, 254); 
+   border-radius: 10px; 
+   overflow:hidden;
+
+}
+
+.DivNews{
+  margin: 5px; 
+  font-weight: 600;
+   color: rgb(19, 19, 19);
+    font-family: 幼圆;         
+}

@@ -1,0 +1,35 @@
+
+.contersspp{
+    
+    position: absolute;
+    width: 1000px;
+    height: 1000px;
+    background-color: rgb(255, 255, 255);
+    margin-left: -500px;
+    margin-right: -500px;
+    left: 50%;
+    border-style:none;
+    border-radius: 15px;
+    top: 15px;
+    box-shadow:rgb(201, 196, 196) 5px 5px 5px 5px;
+
+}
+.p1{
+  margin: 30px;
+  margin-left: 200px;
+}
+.input2{
+
+   width: 300px;
+   height: 40px;
+   font-size: 10px;
+   outline-style: none;
+   border: solid;
+   border-width: 2px;
+   border-color: rgb(70, 69, 129);
+   border-radius: 5px;
+   font-size: 15px;
+   padding: 0px;
+   margin-left: 10px;
+
+}

@@ -1,0 +1,237 @@
+<!DOCTYPE>                <!--去掉了html，解决本地css加载失败-->
+<html lang="en">
+<head>
+    <meta charset="GBK">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>欢迎使用移通藏宝阁</title>
+    <script src="js/jquery-3.6.0.js"></script>
+    <link href="CSS/cardProduct.css" rel="stylesheet" type="text/css">
+    <link href="CSS/a.css" rel="stylesheet" type="text/css" />
+    <link href="CSS/banner.css" rel="stylesheet" />
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+    <link href="CSS/aside.css" rel="stylesheet" />
+    <link href="CSS/products.css" rel="stylesheet"/>
+    <script>
+   $(document).ready(function () {
+                getDataP();
+            });
+    </script>
+
+    <style>
+        img {
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body >
+    <div class="containeraside">
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="MainPage.html">
+                        <span class="icon"><i class="fa fa-home"></i></span>
+                        <span class="title">主页</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="indexB.html">
+                        <span class="icon"><i class="fa fa-user"></i></span>
+                        <span class="title">用户</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><i class="fa fa-comment"></i></span>
+                        <span class="title">留言</span>
+                    </a>
+                </li>
+               <!--
+                   <li>
+                    <a href="#">
+                        <span class="icon"><i class="fa fa-question-circle"></i></span>
+                        <span class="title">Help</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><i class="fa fa-cog"></i></span>
+                        <span class="title">Setting</span>
+                    </a>
+                </li>
+            --> 
+                <li>
+                    <a href="Login.html">
+                        <span class="icon"><i class="fa fa-lock"></i></span>
+                        <span class="title">登录</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="DelectLogin">
+                        <span class="icon"><i class="fa fa-sign-out"></i></span>
+                        <span class="title">退出</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="toggle"></div>
+    </div>
+    <script>
+        const navigation = document.querySelector('.navigation');
+        document.querySelector('.toggle').onclick = function(){
+            this.classList.toggle('active');
+            navigation.classList.toggle('active');
+        }
+    </script>
+
+    <div class="all">
+        <div class="header">
+            <div class="logo"><img src="images/logo1.png" width="150px" height="30px"/></div>
+            <div class="searchbox">
+                    <div class="search-text" class="border-hover">淘一淘</div>
+                    <input type="text" id="search" class="border-hover"/>
+                    <button id="search_icon" class="border-hover" ><img src="images/搜索.png" width="20px" height="20px"/></button>
+            </div>
+            <div class="other_iconbox">
+                <div class="other_icon"><img src="images/爱心.png" width="20px" height="20px"/></div>
+                <div class="line"></div>
+                <div class="other_icon" onclick="dis()" style="cursor:pointer">
+                    <img src="images/日历.png" width="20px" height="20px" />
+                </div>
+
+                <!-- 日历 -->
+
+                <!-- 日历 -->
+            </div>
+        </div>
+        <div class="banner" id="banner">
+
+            <ul id="pic">
+                <li><img src="images/4.jpg" alt="23123" /></li>
+                <li  style="visibility: hidden"><img src="images/1.jpg" alt="" /></li>
+                <li style="visibility: hidden"><img src="images/2.jpg" alt="" /></li>
+                <li style="visibility: hidden"><img src="images/3.jpg" alt="" /></li>
+                <li style="visibility: hidden"><img src="images/女装.jpg" alt="" /></li>
+            </ul>
+            <ol id="list">
+                <li class="on"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ol>
+        </div>
+
+        <div class="shoppinglist">
+            <div class="container">
+                <div class="tittle">
+                    <h1>分类</h1>
+                    <p>行走在世间时，在自己的思维中已觉知，这个世界无论我们选择什么，一定会变成我们的体验</p>
+                    <hr>
+                </div>
+                <div class="row">
+                    <div class="box-img">
+                        <div class="img">
+                         <a href="pageClass?PageClass=1" target=_blank>
+                             <img src="images/女装.png" width="200px" height="200px"/>
+                             <div class="imgbottomtext">衣服</div>
+                             <div class="hid" style="display:none">
+                                 <p>文案</p>
+                             </div>
+                         </a>
+                        </div>
+                    </div>
+                    <div class="box-img">
+
+                      <a href="pageClass?PageClass=2" target=_blank>
+                          <div class="img">
+                              <img src="images/文具.webp" width="200px" height="200px"/>
+                              <div class="imgbottomtext">文具</div>
+                          </div>
+                      </a>
+
+                    </div>
+                    <div class="box-img">
+                       <a href="pageClass?PageClass=5" target=_blank>
+                           <div class="img">
+                               <img src="images/宿舍神器.jpg" width="200px" height="200px"/>
+                               <div class="imgbottomtext">宿舍神器</div>
+                           </div>
+
+                       </a>
+                    </div>
+                    <div class="box-img" >
+                      <a href="pageClass?PageClass=4" target=_blank>
+                          <div class="img">
+                              <img src="images/书籍.png" width="200px" height="200px"/>
+                              <div class="imgbottomtext">书本</div>
+                          </div>
+                      </a>
+                    </div>
+                    <div class="box-img">
+                    <a href="pageClass?PageClass=3" target=_blank>
+                            <div class="img">
+                            <img src="images/电子产品.png" width="200px" height="200px"/>
+                            <div class="imgbottomtext">电子产品</div>
+                            </div>
+                    </a>
+
+                </div>
+                    <a href="pageClass?PageClass=6" target=_blank>
+                        <div class="box-img">
+                            <div class="img">
+                                <img src="images/化妆品.png" width="200px" height="200px"/>
+                                <div class="imgbottomtext">其它</div>
+                            </div>
+                        </div>
+
+                    </a>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="products">
+            <div class="products-text">
+                <div class="text">
+                    <b>products</b>
+
+                </div>
+            </div>
+          <!--  <div class="products-news">
+                <div class="products-icon-box">
+                    <div class="products-icon">
+                        <img src="images/服装.png" width="20px" height="20px"/>
+                    </div>
+                    <div class="products-icon">
+                        <img src="images/鞋子.png" width="20px" height="20px"/>
+                    </div>
+                    <div class="products-icon">
+                        <img src="images/课本.png" width="20px" height="20px"/>
+                    </div>
+                    <div class="products-icon">
+                        <img src="images/服装.png" width="20px" height="20px"/>
+                    </div>
+                </div>
+
+
+            </div>-->
+        </div>
+        
+          <!--展示商品的地方-->
+        <div class="showProduct">
+           <ul class="showUL" style="display: flex; margin: -1px; padding-left: 80px; flex-wrap: wrap; list-style: none;">
+            <!--
+               把ul容器写死，该ul用于存放说展示的商品，通过jQuery控制html文档案动态添加商品列表
+
+            -->
+                  <p style="font-size: 40px"> 没有商品！！！</p>
+           </ul>
+    </div>
+    </div>
+    <script src="js/banner.js"></script>
+    <script src="js/card.js"></script>
+<script src="js/search.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 2877808 */
+  src: url('iconfont.woff2?t=1634627456594') format('woff2'),
+       url('iconfont.woff?t=1634627456594') format('woff'),
+       url('iconfont.ttf?t=1634627456594') format('truetype');
+}
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-weixin:before {
+  content: "\e600";
+}
+.icon-weixin:hover {
+  content: "\e600";
+  color: green;
+}
+.icon-sanjiao1:before {
+  content: "\e601";
+}
+.icon-sanjiao1:hover {
+  content: "\eb6d";
+  color: rgb(26, 109, 226);
+}
+.icon-pinglun:before {
+  content: "\e63a";
+}
+
+.icon-jubao:before {
+  content: "\e652";
+}
+
+.icon-weibo:before {
+  content: "\e65a";
+}
+.icon-weibo:hover {
+  content: "\e65a";
+  color: rgb(230,22,45);
+}
+.icon-shangjiantou:before {
+  content: "\eb6d";
+}
+
+.icon-QQ:before {
+  content: "\e882";
+}
+.icon-QQ:hover {
+  content: "\e882";
+  color: black;
+}
+.icon-fangdajing:before {
+  content: "\e686";
+}
+
+.icon-aixin:before {
+  content: "\e64b";
+}
+
+.icon-goutong:before {
+  content: "\e7b4";
+}
+.icon-aixin:hover {
+  content: "\e64b";
+  color:red;
+}
+
+

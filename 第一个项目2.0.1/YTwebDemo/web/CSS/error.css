@@ -1,0 +1,42 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    background-color: #e3e7e9;
+}
+.errorbox{
+    width:800px;
+    color: rgb(31,55,88);
+    margin:0 auto;
+    display: flex;
+    margin-top: 110px;
+    /* position: absolute;
+    top:50%;
+    left:20%; */
+}
+
+.emo{
+    width: 400px;
+}
+
+.txt{
+    margin-left: 20px;
+    width:300px;
+    padding: 20px;
+    text-align: center;
+    font-size: 50px;
+    font-weight: 400;
+    line-height: 10px;
+    border: 2px solid rgb(203, 206, 230);
+    border-radius: 10px;
+    background-color: ghostwhite;
+}
+.text-box{
+    width:340px;
+   
+}
+p{
+    margin-top:50px;
+}
+.min{
+    font-size: 24px;
+}

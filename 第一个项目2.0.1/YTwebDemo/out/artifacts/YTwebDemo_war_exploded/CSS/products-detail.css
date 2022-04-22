@@ -1,0 +1,261 @@
+
+.all{
+    width: 900px;
+    font-family: Roboto, sans-serif;
+    color: rgb(31,55,88);
+    margin:0 auto;
+}
+.finger{
+    cursor: pointer;
+}
+a{
+    text-decoration: none;
+    color: rgb(31,55,88);
+}
+body{
+    background-color: rgb(229,229,229);
+}
+.show-img{
+    background-color: white;
+    width:600px;
+    float: left;
+}
+.product-detailes{
+    width: 869px;
+    height: auto;
+    overflow: hidden;
+}
+.product-header{
+    height:50px;
+    display: flex;
+    vertical-align: center;
+    align-items: center;
+    justify-content: center;
+}
+.out{
+    width: 19px;
+    height: 16px;
+    background-color: rgb(236,236,236);
+    float: left;
+    border: 1px solid rgb(200, 210, 238);
+}
+.out span{
+    display: flex;
+    vertical-align: center;
+    align-items: center;
+    justify-content: center;
+}
+.header-left{
+    width:60px;
+    height:20px;
+    display: flex;
+    vertical-align: center;
+    align-items: center;
+    justify-content: center;
+}
+.save{
+    height:16px;
+    width: 20px;
+    float: left;
+}
+.save-text{
+    border: 0;
+    background-color: white;
+    width:50px;
+    font-size: 12px;
+    float: left;
+}
+.save-text:hover{
+    color: rgb(61, 125, 216);
+}
+.header-right{
+    width: 140px;
+    margin-left: 248px;
+    float: left;
+    display: flex;
+    vertical-align: center;
+    align-items: center;
+    justify-content: center;
+}
+.share-text{
+    width:30px;
+    font-size: 12px;
+    float: left;
+}
+.share-text p:hover{
+    color: rgb(61, 125, 216);
+}
+.share-big{
+    text-align: center;
+    width:22px;
+    height:16px;
+    margin-left: 10px;
+    float: left;
+    background-color: rgb(236,236,236);
+    border: 1px solid rgb(200, 210, 238);
+}
+.like{
+    width: 100px;
+}
+.comment{
+    width:50px;
+}
+.btn{
+    height:20px;
+    display: flex;
+    vertical-align: center;
+    align-items: center;
+    justify-content: center;
+    float: left;
+    margin-left: 5px;
+}
+.btn button:hover{
+    color: rgb(61, 125, 216);
+}
+.product-img{
+    height:auto;
+}
+.main-img{
+    text-align: center;
+    position:relative;
+}
+.next{
+    position: absolute;
+    top:40%;
+   
+}
+.main-img button{
+    cursor: pointer;
+    height: 60px;
+    width: 30px;
+    border-radius: 5px;
+    opacity: 0.5;
+    color: white;
+    /* outline: white solid 0.5px; */
+    background-color: #0000004a;
+    border: none;
+    /* Box-shadow: 0px 1px 3px #abc4dd;*/
+}
+.left{
+    left: 76px;
+}
+.right{
+    position: absolute;
+    right:76px;
+}
+.img-bottom{
+    width: 100%;
+    height:50px;
+}
+.price{
+    float: left;
+    margin-left: 23px;
+    font-size: 16px;
+    margin-top: 3%;
+}
+.img-tools{
+    float: right;
+    font-size: 12px;
+    width: 200px;
+    margin: 15px auto;
+}
+.buy{
+    border: 0;
+    background-color: white;
+}
+.buy:hover{
+    color: rgb(61, 125, 216);;
+}
+.user{
+    width:200px;
+    margin-left: 10px;
+    float: left;
+    background-color: white;
+    padding: 20px;
+    font-size: 12px;
+}
+.user-img{
+    width: 80px;
+    margin:0 auto
+}
+.user-name{
+    width:50px;
+    margin:0 auto;
+}
+.user-img img{
+    border-radius: 50%;
+}
+.user-info{
+    margin-top: 10px;
+    width:100%;
+    height:100px;
+}
+.info-o{
+    border-left:3px solid  rgb(61, 125, 216);
+    padding: 2px;
+}
+.info-oo{
+    margin-top: 10px;
+    background-color: rgb(236,236,236);
+    padding: 5px 10px;
+    height:50px;
+}
+.describe{
+    background-color: white;
+    width: 600px;
+    margin-top: 10px;
+}
+.main-img img{
+    width:450px;
+    height:auto;
+    max-width:670px;
+    min-width: 200px;
+}
+.solder{  
+    width:600px;
+    padding: 10px;
+    margin-left:23px;
+    height:auto;
+}
+.solder-img{
+    float: left;
+    font-size: 14px!important;
+    
+}
+.solder-img img{
+    border-radius: 50%;
+    vertical-align:middle;
+}
+.solder-text{
+    line-height: 48px;
+    color: #808080 !important;
+    float: left;
+    font-size: 5px;
+    margin-left: 10px;
+}
+.solder-content{
+    padding: 34px 80px;
+    background: #f8f8f8;
+    border: 1px solid #eeeeee;
+    border-radius: 3px;
+    margin-top: 16px;
+    font-size: 16px;
+}
+.text{
+    border: 1px solid rgb(182, 204, 235);
+    border-radius: 10px;
+    padding: 5px 10px;
+}
+/* 价钱css */
+.price span{
+    font-size: 12px;
+}
+#price{
+    font-size: 16px;
+    color: brown;
+}
+#olprice{
+    font-size: 14px;
+    color: darkblue;
+    text-decoration-line: line-through;
+}
