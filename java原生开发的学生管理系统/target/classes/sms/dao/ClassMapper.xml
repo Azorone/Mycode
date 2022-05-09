@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sms.dao.ClassDao">
+
+<insert id="addClass" parameterType="sms.pojo.Classber">
+    insert into class (cid, cname, cnumber, tid, cdescribe, ccode) VALUE (#{cid},#{cname},#{cnumber},#{tid},#{cdescribe},#{ccode});
+</insert>
+    <delete id="delClass" parameterType="int">
+        delete from class where cid=#{cid};
+    </delete>
+    <select id="getClassber" parameterType="int" resultType="sms.pojo.Classber">
+        select * from class where cid=#{cid};
+    </select>
+    <select id="getClassbersT" parameterType="int" resultType="sms.pojo.Classber">
+        select * from class where tid=#{tid};
+    </select>
+    
+    <select id="isExistNews" parameterType="map" resultType="sms.pojo.Joinnews">
+        select * from joinnews where cid=#{cid} and stid=#{stid}; 
+    </select>
+    
+    <select id="getJoinNews" parameterType="int" resultType="sms.pojo.Joinnews">
+        select  * from joinnews where newsid=#{newsid};
+    </select>
+    
+    <delete id="delJoinNews" parameterType="int" >
+        delete from joinnews where newsid=#{newsid};
+    </delete>
+    
+    <insert id="addJoinNews" parameterType="sms.pojo.Joinnews">
+        insert into joinnews (cid, stid, name) VALUE (#{cid},#{stid},#{name});
+    </insert>
+
+    <select id="getClassAllNews" parameterType="int" resultType="sms.pojo.Joinnews">
+        select * from joinnews where cid=#{cid};
+    </select>
+
+</mapper>

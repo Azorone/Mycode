@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+
+        .sms-form{
+            width: 600px;
+
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            margin: 0px;
+            padding: 0px;
+
+        }
+
+        .sms-form input{
+
+            width: 300px;
+            height: 40px;
+            margin: 0 auto;
+
+            margin-bottom: 20px;
+        }
+
+
+
+    </style>
+</head>
+<body style="margin: 0px;padding: 0px;">
+
+        <div style="background-color: #0066ff;width: 100%; height: 60px;" >
+            欢迎来到猫咪电子教室 文件上传
+        </div>
+        <div style="width: 800px;  margin: 15% auto 0; display: flex;justify-content: center;">
+
+            <form action="Upfile" class="sms-form" enctype="multipart/form-data" method="post">
+                <input type="text" placeholder="资料名称" name="name">
+                <input type="text" placeholder="资料类型" name="class">
+                <input type="file" name="data">
+                <div style="width: 300px;   margin: 0 auto;">
+                    <input type="reset"> <input type="submit" value="上传" onclick="">
+                </div>
+
+            </form>
+        </div>
+<div style=" display: none;width: 300px;height:100px; position: absolute; top: 240px;left: 850px; background-color: #0066ff;border-radius: 15px; text-align: center;">
+    <p style="color: white; font-weight: bold;">正在上传中........ <span> </span> </p>
+</div>
+<script>
+
+</script>
+</body>
+</html>

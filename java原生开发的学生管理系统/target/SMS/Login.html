@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网上教室</title>
+    <script src="JS/jquery-3.6.0.js"></script>
+    <link rel="stylesheet" href="Login.css">
+    <style>
+   
+      .A-mainDivYCitem{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+
+      }
+      .A-divCss1{
+          background-color: rgb(221, 250, 250);
+          width: 100%;
+          height:100%;
+          display: flex; /* 设置为flex布局 */
+          justify-content: center; /* 设置为水平居中 */
+           align-items: center; /* 设置为垂直居中 */
+      }
+      
+
+    </style>
+</head>
+<body >
+    <div class="A-mainDiv">
+        <div class="A-mainDivYCitem A-divCss1" id="login">
+                   <div  style="width: 800PX; height:680px; display: flex;">
+                         <div style="width: 50%; height: 100%; background-color: rgb(122, 181, 233);">
+                          <img src="imgs/登录图备选2.webp" alt="" srcset="" width="100%">
+                        </div>
+                        <div style="width: 50%; height: 100%; background: linear-gradient(rgb(196, 221, 245), rgb(47, 13, 236));; border-radius: 15px; display: flex; /* 设置为flex布局 */
+                        justify-content: center; /* 设置为水平居中 */
+                         align-items: center; /* 设置为垂直居中 */ ">
+                          <div style="height: 80%;" >
+                                       <div>
+                                         <div>
+                                           <h3 style="color: rgb(252, 253, 253); font-size: 30px;">Hi—欢迎使用猫咪电子教室</h3>
+                                         </div>
+                                        <input type="text" style="width: 300px; height:50px; margin: 30px; outline-style: none; border-style: none; border-radius: 10px; " placeholder="账户" name="account" id="account">
+                                       </div>
+                                       <div>
+                                        <input type="text" style="width: 300px; height:50px;  margin: 30px; outline-style: none;  border-style: none;border-radius: 10px;" placeholder="密码" name="pass" id="pass">
+                                       </div>
+                                       <div style="display: flex; justify-content: center;">
+                                           <div  style="width: 30%; height: 40px; margin: 10px;"><button  style="width: 100%; height: 100%;cursor: pointer;" onclick="chickUser()">登录</button> </div>
+                                            <div  style="width: 30%; height: 40px; margin: 10px;"><button  style="width: 100%; height: 100%;cursor: pointer;" onclick="changeL()">注册</button></div>
+                                            <div  style="width: 30%; height: 40px; margin: 10px;"><button  style="width: 100%; height: 100%;cursor: pointer;">忘记密码</button></div>
+                                       </div>        
+                          </div>
+                        </div> 
+                   </div>
+        </div>
+        <div class="A-mainDivYCitem A-divCss1" id="regsiter" style="display: none;">
+           <div style="width: 30%; height: 80%; background: linear-gradient(rgb(230, 78, 58), rgb(73, 45, 236));; border-radius: 15px; display: flex; /* 设置为flex布局 */
+           justify-content: center; /* 设置为水平居中 */
+            align-items: center; /* 设置为垂直居中 */ ">
+             <div style="height: 90%;" >
+              <div>
+                <h3 style="color: rgb(252, 253, 253); font-size: 30px;">Hi—猫咪电子教室</h3>
+              </div>
+              <div>
+              </div>
+                          <div>
+                           <input type="text" style="width: 300px; height:40px; margin: 30px; outline-style: none; border-style: none; border-radius: 10px; " placeholder="手机" id="phone">
+                          </div>
+                          <div>
+                           <input type="text" style="width: 300px; height:40px;  margin: 30px; outline-style: none;  border-style: none;border-radius: 10px;" placeholder="姓名" id="name">
+                          </div>
+                          <div>
+                            <input type="text" style="width: 300px; height:40px;  margin: 30px; outline-style: none;  border-style: none;border-radius: 10px;" placeholder="密码" id="passer">
+                           </div>
+                           <div>
+                            <input type="text" style="width: 300px; height:40px;  margin: 30px; outline-style: none;  border-style: none;border-radius: 10px;" placeholder="确认密码" id="repasser">
+                           </div>
+
+                          <div style="display: flex; justify-content: center;">
+                              <div  style="width: 30%; height: 40px; margin: 10px;"><div  value="student" style="width: 100%; height: 100%; cursor: pointer;background-color: #cccccc"" onclick="registerS()">我是学生</div> </div>
+                               <div  style="width: 30%; height: 40px; margin: 10px;"><div value="teacher"   style="width: 100%; height: 100%;cursor: pointer; background-color: #cccccc" onclick="registerT()">我是老师</div></div>
+                               <div  style="width: 30%; height: 40px; margin: 10px;"><button  value=""  style="width: 100%; height: 100%;cursor: pointer;" onclick="changeR()">返回登录</button></div>
+                          </div>        
+             </div>
+           </div> 
+      </div>
+        </div>
+    </div>
+</body>
+<script>
+ function changeL(){
+  let regsiter = document.getElementById("regsiter");
+  let login = document.getElementById("login");
+        login.style.display="none";
+        regsiter.style.display = "flex";
+ }
+ function changeR(){
+  let regsiter = document.getElementById("regsiter");
+  let login = document.getElementById("login");
+        login.style.display="flex";
+        regsiter.style.display = "none";
+ }
+
+ function chickUser(){
+     reg=/[`~!@#$%^&*()_+<>?:"{},.\/;'[\]]/im;
+     let account = $("#account").val();
+     let pass    = $("#pass").val();
+     if (reg.test(account)){
+         alert("请输入正确账号或者检查账号格式");
+         return ;
+     }
+     else {
+         let data = "account="+account+"&pass="+pass;
+         $.ajax({
+              type:"post",
+              data:data,
+              url:"sms-login",
+              success:function (response){
+                  let fl  =response.toString();
+                         if (fl==1)
+                         {
+                             alert("登录成功")
+                             window.location.href="Student.html";
+                         }
+                         else if (fl==2){
+                             window.location.href="Teacher.html";
+                         }
+                         else if (fl==-1) {
+                             alert("请检查密码或者账号");
+                         }
+              }
+         })
+     }
+ }
+
+ function registerS(){
+
+       let  kid  = "student";
+       let name=$("#name").val();
+       let phone    = $("#phone").val();
+           let passer =  $("#passer").val();
+           let repass = $("#repasser").val();
+           if (passer===repass)
+           {
+
+
+               let data = "kid="+kid+"&pass="+passer+"&phone="+phone+"&name="+name;
+               console.log(data);
+               GetData("sms-register",data)
+           }
+           else {
+               alert("密码不相同");
+           }
+
+
+ }
+
+ function registerT(){
+
+     let  kid  = "teacher";
+     let name=$("#name").val();
+     let phone    = $("#phone").val();
+     let passer =  $("#passer").val();
+     let repass = $("#repasser").val();
+     if (passer===repass)
+     {
+         let data = "kid="+kid+"&pass="+passer+"&phone="+phone+"&name="+name;
+         console.log(data);
+         GetData("sms-register",data)
+     }
+
+ }
+
+ function GetData(url,data){
+
+     $.ajax({
+         type: "post",
+         url: url,
+         data:data,
+         success: function (response) {
+             let s =response.toString();
+              console.log(s);
+              if (s==1)
+              {
+                  alert("注册成功！");
+                  window.location.href="Login.html";
+              }
+              else {
+                  alert("账号以经被注册！");
+              }
+
+         }
+     })
+
+ }
+</script>
+</html>

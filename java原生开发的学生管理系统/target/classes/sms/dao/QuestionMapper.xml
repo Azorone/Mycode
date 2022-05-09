@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sms.dao.QuestionDao">
+    <insert id="addseletq" parameterType="sms.pojo.qusetion.seletq">
+        insert into seletq (qclass,ansA,ansB,ansC,ansD,ans,qdiff,qtitle,tid)
+        VALUE (#{qclass},#{ansA},#{ansB},#{ansC},#{ansD},#{ans},#{qdiff},#{qtitle},#{tid});
+    </insert>
+     
+    <insert id="addLunq" parameterType="sms.pojo.qusetion.Lunq">
+        insert into lunq (wqtitle,wqclass) VALUE (#{wqtitle},#{wqclass});
+    </insert>
+    
+    <delete id="delSeletq" parameterType="int" >
+        delete from seletq where qid=#{qid};
+    </delete>
+
+    <delete id="delLunq" parameterType="int" >
+        delete from lunq where wqid=#{wqid};
+    </delete>
+    
+    <insert id="addExam" parameterType="sms.pojo.qusetion.Exam">
+        insert into exam (tid, ename, etime) VALUE (#{tid},#{ename},#{etime});
+    </insert>
+    
+    <delete id="delExam" parameterType="int" >
+        delete from exam where eid=#{eid};
+    </delete>
+    
+    <insert id="addEqtable" parameterType="sms.pojo.qusetion.Eqtable">
+        insert into eqtable (eid, qid) VALUE (#{eid},#{qid});
+    </insert>
+    
+    <delete id="delEqtable" parameterType="int">
+        delete from eqtable where eqid=#{eqid};
+    </delete>
+    
+    <select id="getTeacherExam" parameterType="int" resultType="sms.pojo.qusetion.Exam">
+        select * from exam where tid=#{tid};
+    </select>
+    
+    <select id="getSeletqs" parameterType="int" resultType="sms.pojo.qusetion.seletq">
+        select * from seletq where qid in (select qid from eqtable where eid=#{eid});
+    </select>
+
+    <select id="getLunqs" parameterType="int" resultType="sms.pojo.qusetion.Lunq">
+        select * from lunq where wqid in (select qid from eqtable where eid=#{eid});
+    </select>
+    
+    <select id="getexam" parameterType="int" resultType="sms.pojo.qusetion.Exam">
+        select * from exam where eid=#{eid};
+    </select>
+     <insert id="addClassExam" parameterType="sms.pojo.qusetion.ClassExam" >
+         insert into clssexam (cid, eid) VALUE (#{cid},#{eid});
+     </insert>
+    <delete id="delClassExam" parameterType="int" >
+        delete from clssexam where ecid=#{ecid};
+    </delete>
+    
+    <select id="getClassExamcid" parameterType="int" resultType="sms.pojo.qusetion.Exam">
+        select * from exam where eid in (select eid from clssexam where cid=#{cid})
+    </select>
+    
+    <select id="getClassExameid" parameterType="int" resultType="sms.pojo.Classber">
+        select * from  class where cid in (select cid from clssexam where eid=#{eid});
+    </select>
+   
+    <insert id="addsetable" parameterType="sms.pojo.qusetion.Setable">
+        insert into setable (sid, ecid) VALUE (#{sid},#{ecid});
+    </insert>
+    <select id="isExisetCE" parameterType="map" resultType="sms.pojo.qusetion.ClassExam">
+        select * from clssexam where cid=#{cid} and eid=#{eid};
+    </select>
+
+    <select id="getSeletqTid" resultType="sms.pojo.qusetion.seletq">
+        select * from seletq where tid=#{tid};
+    </select>
+    <select id="getLunqTid" resultType="sms.pojo.qusetion.Lunq">
+        select * from lunq where tid = #{tid};
+    </select>
+    
+    <delete id="deleSetable" parameterType="int" >
+        delete from setable where ecid =#{ecid};
+    </delete>
+    <select id="getClassExamEid" resultType="sms.pojo.qusetion.ClassExam" parameterType="int">
+        select * from clssexam where eid=#{eid};
+    </select>
+    <delete id="delEQEid" parameterType="int">
+        delete from eqtable where eid=#{eid};
+    </delete>
+ 
+     <select id="getSetableCid" parameterType="map" resultType="sms.pojo.qusetion.Setable">
+         SELECT * FROM setable WHERE sid=#{sid} AND ecid IN (SELECT ecid FROM clssexam WHERE cid =#{cid});
+     </select>
+    <select id="getASetable" resultType="sms.pojo.qusetion.Setable" parameterType="map">
+        SELECT * FROM setable WHERE sid=#{sid} AND ecid IN (SELECT ecid FROM clssexam WHERE cid =#{cid} AND eid =#{eid});
+    </select>
+    
+    
+    <select id="getNoEidSq" parameterType="map" resultType="sms.pojo.qusetion.seletq">
+        SELECT * FROM seletq WHERE tid=#{tid} and qid NOT IN (SELECT qid FROM eqtable WHERE eid=#{eid});
+    </select>
+
+    <select id="getNoEidLq" parameterType="map" resultType="sms.pojo.qusetion.Lunq">
+        SELECT * FROM lunq WHERE tid=#{tid} and wqid NOT IN (SELECT qid FROM eqtable WHERE eid=#{eid});
+    </select>
+
+  <select id="getNoClass" resultType="sms.pojo.Classber" parameterType="map">
+      select * from class where tid=#{tid} and cid not in( select cid from clssexam where eid=#{eid});
+  </select>
+
+    <delete id="delExamQusetion" parameterType="map" >
+        delete from eqtable where eid=#{eid} and qid=#{qid};
+    </delete>
+    
+    <update id="updateStudent" parameterType="map" >
+        update setable set score=#{score} where seid=#{seid};
+    </update>
+</mapper>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sms.dao.TeacherDao">
+    <!--删除教师信息-->
+  <delete id="delTeachm" parameterType="int">
+      delete from teachm where tid = #{id};
+  </delete>
+    <!--查询所有教师-->
+<select id="getTeachers" resultType="sms.pojo.Teachm">
+    select * from teachm;
+</select>
+    <!--查询制定教师-->
+    <select id="getTeacher" resultType="sms.pojo.Teachm" parameterType="int">
+        select * from teachm where tid=#{id};
+    </select>
+    <insert id="addTeachm" parameterType="sms.pojo.Teachm" >
+        insert into teachm (tid, name, phone, mail) VALUE (#{tid},#{name},#{phone},#{mail})
+    </insert>
+</mapper>

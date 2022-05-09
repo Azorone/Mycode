@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sms.dao.McDao">
+    <!--添加学生教室-->
+    <insert id="addMc" parameterType="map" >
+        insert into mctable (mid, cid) VALUE (#{mid},#{cid});
+    </insert>
+    <insert id=" addm" parameterType="sms.pojo.zl.material">
+        insert into material (zname, zurl, zclass, tid) VALUE (#{zname},#{zurl},#{zclass},#{tid});
+    </insert>
+
+    <delete id="delm" parameterType="int">
+        delete from material where zid=#{zid};
+    </delete>
+    <delete id="delmc" parameterType="int">
+        delete from mctable where mid=#{zid};
+    </delete>
+
+    <select id="getCidM" parameterType="int" resultType="sms.pojo.zl.material">
+         select * from material where zid in (SELECT mid from mctable where cid=#{cid});
+    </select>
+    <select id="getTidM" parameterType="int" resultType="sms.pojo.zl.material">
+        select * from  material where tid=#{tid};
+    </select>
+
+    <select id="getm" resultType="sms.pojo.zl.material" parameterType="int" >
+        select * from material where zid = #{zid};
+    </select>
+</mapper>

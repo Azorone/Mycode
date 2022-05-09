@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="JS/jquery-3.6.0.js"></script>
+</head>
+<body>
+
+
+<div>
+
+    <div style="display: flex; width: 1200px; margin: 0 auto;" >
+        <div style="width: 30.3%; margin-left: 30px; border-style: solid;">
+          <div style="display: flex;"><div onclick="openon()" style="width: 120px; height: 60px; background-color: #0066ff; margin-left: 20px;cursor: pointer;">以发布的班级</div> <div onclick="openok()" style="width: 120px; height: 60px; background-color: #0066ff; margin-left: 20px; cursor: pointer;">未发布的班级</div></div>
+          <div id="msm-ok">
+              <p>以发布班级</p>
+              <div style="overflow: scroll;">
+
+                  <div style="width: 90%; height: 600px;" id="box-OkC">
+
+                      <div><input type="checkbox" value="1" class="coks"> <span>班级一</span></div>
+
+                      <div><input type="checkbox" value="1" class="coks"> <span>班级一</span></div>
+                  </div>
+              </div>
+            <div style="width: 120px; height: 60px; background-color: #0066ff; color: white;cursor: pointer;" onclick="removeClass()">从所选班级移除</div>
+          </div>
+
+            <div style="display:  none;" id="msm-no">
+                <p>未发布班级</p>
+                <div style="overflow: scroll;">
+
+                    <div style="width: 90%; height: 600px;" id="box-NoC">
+
+                        <div><input type="checkbox" value="1" CLASS="cnos"> <span>班级一</span></div>
+
+                        <div><input type="checkbox" value="1" CLASS="cnos"> <span>班级一</span></div>
+                    </div>
+                </div>
+
+                <div style="width: 120px; height: 60px; background-color: #0066ff; color: white;cursor: pointer;" onclick="AddClass()">添加到所选班级</div>
+            </div>
+
+
+
+        </div >
+
+        <div style="width: 30.3%;margin-left: 30px;border-style: solid;">
+          <div></div>
+            <p>试题的详情</p>
+
+            <div style="overflow: scroll;">
+                <div style="width: 90%; height: 600px;" id="box-OkQ">
+
+                    <div><input type="checkbox" value="1" class="qoks"> <span>班级一</span></div>
+
+                    <div><input type="checkbox" value="1" class="qoks"> <span>班级一</span></div>
+                </div>
+            </div>
+            <div style="width: 120px; height: 60px; background-color: #0066ff; color: white;cursor: pointer;" onclick="removeQuestion()">删除所选题</div>
+        </div>
+
+        <div style="width: 30.3%;margin-left: 30px;border-style: solid;">
+
+            <p>可添加的题</p>
+
+            <div style="overflow: scroll">
+
+                <div style="width: 90%; height: 600px;" id="box-NoQ">
+
+                    <div><input type="checkbox" value="1" class="qnos"> <span>班级一</span></div>
+
+                    <div><input type="checkbox" value="1" class="qnos"> <span>班级一</span></div>
+                </div>
+
+
+            </div>
+            <div style="width: 120px; height: 60px; background-color: #0066ff; color: white;cursor: pointer;" onclick="AddQuestion()">添加所选题</div>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+<script>
+    let eid = GetQueryString("eid");
+       $(document).ready(function (){
+           getExam("doExam");
+           GetData("NoClass",creatNoClass,"#box-NoC","cnos");
+           GetData("NoQuestion",creatNoQuestion,"#box-NoQ","qnos");
+           GetData("OKClass",creatOKClass,"#box-OkC","coks");
+           GetData("OKQuestion",creatOKQuestion,"#box-OkQ","qoks");
+       })
+        function getExam(url){
+
+        $.ajax({
+            type: "post",
+            url: url,
+            data:"eid="+eid,
+            dataType: "json",
+            success: function (response) {
+                if (response===null) return ;
+            }
+        });
+    }
+ function creatExam(response)
+ {
+
+ }
+    function GetQueryString(name)
+    {
+        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if(r!=null)return  unescape(r[2]);
+        return null;
+    }
+    //打开以发布的班级表
+       function openon()
+       {
+           $("#msm-ok").css("display","block");
+           $("#msm-no").css("display","none");
+           GetData("OKClass",creatOKClass,"#box-OkC","coks");
+       }
+       //打开没发布的班级表
+       function openok(){
+
+           $("#msm-ok").css("display","none");
+           $("#msm-no").css("display","block");
+           GetData("NoClass",creatNoClass,"#box-NoC","cnos");
+       }
+       function delExam()
+       {
+
+       }
+       function removeClass(){
+           let p = [];
+          p= getValue(".coks",);
+          console.log(p)
+          SubData("removeClass",p, GetData("OKClass",creatOKClass,"#box-OkC","coks"))
+
+       };
+       function removeQuestion(){
+           let p = [];
+
+           p= getValue(".qoks",);  console.log(p)
+
+           SubData("removeQuestion",p,GetData("OKQuestion",creatOKQuestion,"#box-OkQ","qoks"))
+
+       };
+       function AddClass(){
+           let p = [];
+           p= getValue(".cnos",);    console.log(p)
+           SubData("AddClass",p,   GetData("NoClass",creatNoClass,"#box-NoC","cnos"));
+       };
+       function AddQuestion(){
+           let p = [];
+           p= getValue(".qnos",);    console.log(p)
+           SubData("AddQuestion",p,GetData("NoQuestion",creatNoQuestion,"#box-NoQ","qnos"))};
+       //从后台获取数据
+       function GetData(url,f,id,ids){
+
+           $.ajax({
+               type: "post",
+               url: url,
+               data:"eid="+eid,
+               dataType: "json",
+               success: function (response) {
+                   if (response===null) return ;
+                       f(response,id,ids);
+               }
+           })
+
+       }
+       function SubData(url,data,f){
+         let list = JSON.stringify(data);
+         console.log(list);
+           $.ajax({
+               type: "post",
+               url: url,
+               data:"eid="+eid+"&list="+list,
+               dataType: "json",
+               success: function (response) {
+
+                        f();
+               }
+           })
+       }
+       //创建没发布的教室
+       function creatNoClass(response,id,ids){
+           $(id).empty();
+           let i;
+           let siz = response.length;
+           for (i=0;i<siz;i++)
+           {
+               creatInputC(id,ids,response[i])
+           }
+       }
+       //创建没添加的题库
+       function creatNoQuestion(response,id,ids){
+           $(id).empty();
+           let i;
+           let siz = response.length;
+           for (i=0;i<siz;i++)
+           {
+               creatInputQ(id,ids,response[i])
+           }
+       }
+       //创建发布的教室
+       function creatOKClass(response,id,ids){
+           $(id).empty();
+           let i;
+           let siz = response.length;
+           for (i=0;i<siz;i++)
+           {
+                 creatInputC(id,ids,response[i])
+           }
+       }
+       //创建试题的题目列表
+       function creatOKQuestion(response,id,ids){
+           $(id).empty();
+           let i;
+           let siz = response.length;
+           for (i=0;i<siz;i++)
+           {
+               creatInputQ(id,ids,response[i])
+           }
+       }
+       //创建复选框 id 所添加的容器id ，ids 复选框的类 data 数据
+       function creatInputQ(id,ids,data){
+           //获取添加的容器id
+           let root = $(id);
+
+           let div1 = $("<div></div>");
+           let input = $("<input type='checkbox' value='"+data.qid+"' class='"+ids+"'>");
+           let span  = $("<span>"+data.qname+"</span>");
+           div1.append(input);
+           div1.append(span);
+           root.append(div1);
+       }
+       function creatInputC(id,ids,data){
+           //获取添加的容器id
+           let root = $(id);
+
+           let div1 = $("<div></div>");
+           let input = $("<input type='checkbox' value='"+data.cid+"' class='"+ids+"'>");
+           let span  = $("<span>"+data.cname+"</span>");
+           div1.append(input);
+           div1.append(span);
+           root.append(div1);
+       }
+    //获取复选框的数据
+
+
+
+    function getValue(tagerClass,f){
+        let p = $(tagerClass);
+        let data = [];
+        let j=0
+        let i;
+        for(i=0;i<p.length;i++){
+            if(p[i].checked)
+            {
+                console.log(j);
+                data[j] =  p[i].getAttribute("value");
+                j=j+1;
+
+            }
+        }
+
+
+        f;
+        return data;
+       }
+
+
+
+</script>
+</body>
+
+</html>

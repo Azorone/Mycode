@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="JS/jquery-3.6.0.js"></script>
+<body>
+          <div style="width: 1000px;margin: 0 auto; background-color: #cccccc">
+               <div style="text-align: center">
+                   <h3 id="ename">
+                      试卷名称:
+                   </h3>
+                   <div style="width: 100%;height: 6px; background-color: #0066ff"></div>
+               </div>
+              <div>
+                  <div>
+                      试题区
+
+                      <form action="Score" method="post" id="">
+
+                          <ol id="box-qusestion" >
+
+
+                          </ol>
+                          <div style="height: 30px"></div>
+                          <div>
+                              <input type="hidden" id="eid" name="eid">
+                              <input type="hidden" id="seid" name="seid">
+                             <input type="submit" value="完成"> <input type="reset" value="重置">
+                          </div>
+                      </form>
+                  </div>
+              </div>
+
+          </div>
+<script>
+  eid = GetQueryString("eid");
+
+getTest("getTest")
+
+    function CreatTest(Test)
+    {
+            let list = [];
+            let s = Test.ename;
+            $("#ename").append(s);
+            $("#eid").val(Test.eid);
+        let seid = GetQueryString("seid");
+            $("#seid").val(seid);
+            list = Test.seletqList;
+         CreatQuestion(list,"#box-qusestion");
+    }
+
+    function CreatQuestion(Lists,id)
+    {
+                   let root =   $(id);
+                   let siz = Lists.length;
+                   for (i=0;i<siz;i++)
+                   {
+
+                       let li = $("<li></li>");
+                       let div = $("<div></div>");
+                       let h   = $("<h4>"+Lists[i].qtitle+"</h4>")
+                       let div2 = $("<div></div>");
+                       let ul   = $("<ul></ul>");
+                       let liA  = $("<li><input value='A' type='radio' name='"+Lists[i].qid+"'><span>A：</span><span>"+Lists[i].ansA+"</span></li>");
+                       let liB  = $("<li><input value='B' type='radio' name='"+Lists[i].qid+"'><span>B：</span><span>"+Lists[i].ansB+"</span></li>");
+                       let liC  = $("<li><input value='C' type='radio' name='"+Lists[i].qid+"'><span>C：</span><span>"+Lists[i].ansC+"</span></li>");
+                       let liD  = $("<li><input value='D' type='radio' name='"+Lists[i].qid+"'><span>D：</span><span>"+Lists[i].ansD+"</span></li>");
+
+                       ul.append(liA);
+                       ul.append(liB);
+                       ul.append(liC);
+                       ul.append(liD);
+                       div2.append(ul);
+                       div.append(h);
+                       li.append(div);
+                       li.append(div2);
+                       root.append(li);
+                   }
+    }
+
+    function GetQueryString(name)
+    {
+        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if(r!=null)return  unescape(r[2]);
+        return null;
+    }
+
+    function getTest(url){
+
+        $.ajax({
+            type: "post",
+            url: url,
+            data:"eid="+eid,
+            dataType: "json",
+            success: function (response) {
+                if (response===null) return ;
+                CreatTest(response);
+            }
+        });
+    }
+</script>
+</body>
+</html>

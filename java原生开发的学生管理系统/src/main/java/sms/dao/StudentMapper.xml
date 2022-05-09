@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sms.dao.StudentDao">
+    <!--添加学生-->
+    <insert id="addStudent" parameterType="sms.pojo.Studentm">
+        insert into studentm (sid, name, phone, stuid) VALUE (#{sid},#{name},#{phone},#{stuid});
+    </insert>
+    <!--删除学生-->
+    <delete id="delStudent" parameterType="int" >
+        delete from studentm where sid=#{id};
+    </delete>
+    <!--查询-->
+    <select id="getStudent" parameterType="int" resultType="sms.pojo.Studentm">
+        select * from studentm where sid=#{id};
+    </select>
+    <!--查询所有-->
+    <select id="getStudents"  resultType="sms.pojo.Studentm">
+        select * from studentm;
+    </select>
+    
+    <select id="getClassStudent" resultType="sms.pojo.Studentm" parameterType="int">
+        select * from studentm where sid in (select sid from clst where cid=#{cid});
+    </select>
+</mapper>

@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="CSS/Teacher.css">
+    <script src="JS/jquery-3.6.0.js"></script>
+</head>
+<body style="margin: 0px;">
+    <div style="width: 100%; height: 100%; ">
+        <div style="position:fixed; background-color: rgb(20, 29, 49); width: 100%; display: flex; justify-content: right; z-index: 1;">
+            <div style="width: 25%;">
+                <div>
+                    <p style="color:aliceblue; font-size: 20px;">欢迎使用猫咪教室</p>
+                </div>
+               
+            </div> 
+            <div style="width: 50%;">
+    
+            </div>
+            <div style="margin-top: 10px;">
+                <div style="width: 300px; height:80%; outline-style: none;"> <div value="加入教室"  style="height: 40px; border-style: none; outline-style: none; margin-right: 40px;"></div></div>
+            </div>
+            
+            
+          </div> 
+    </div>
+    <div style="display: flex; width: 100%; flex-direction: row; padding-top: 60px; height: 100%; ">
+        
+          <div class="SMS-leftp">
+                     
+                <div class="SMS-button" onclick="chanceDiv('.SMS-JS')" id="myclass">
+                    我的教室
+                </div>
+                <div class="SMS-button" onclick="chanceDiv('.SMS-ZY')" id="myExam">
+                    试题管理
+                </div>
+               <!--<div class="SMS-button" onclick="chanceDiv('.SMS-ZL')" id="myzl">
+                    发布资料
+                </div>!-->
+                <div class="SMS-button" onclick="chanceDiv('.SMS-TK')" id="myQuestion">
+                    题库
+                </div>
+
+          </div>
+        <div class="SMS-left">
+        </div>
+          <div class="SMS-mid">
+                <div class="SMS-JS" style="display: block;">
+                    <div style="height: 20px;">
+                    </div>
+                    <div  >
+                        <div style="display: flex;">
+                            <div id="btCClass" style="width: 80px; height: 40px; background-color: rgb(128, 186, 201); text-align: center; padding-top: 10px; margin-right: 10px; cursor: pointer;">创建教室</div>
+                        <div>
+                            <input  style="width: 200px; height: 30px;" type="text" placeholder="输入教室名称或者编号">
+                            <input    style="width: 50px; height: 30px;" type="button" value="搜索">
+                        </div>
+                        </div>
+                        
+                        <div class="SMS-Tclass">
+                            <div class="SMS-item1" id="SMS-root">
+
+                            </div>
+                           
+                        </div>
+                    </div>
+                </div>
+
+                <div class="SMS-ZY"  style="display: none;" >
+                    <div style="height: 20px;">
+
+                    </div>
+                    <div>
+                        <div style="display: flex">
+                            <div>作业列表</div>
+                            <div style="background-color: #0066ff; margin-left: 20px; width: 80px; height: 30px; cursor: pointer" onclick="openPop('#pop-Exam')" id="popEx">创建作业</div>
+                        </div>
+
+                        <div id="box-exam">
+                            <div class="SMS-exam1">
+                                <div >
+                                    <table  id="showExamT" class="showdata">
+
+                                    </table>
+                                </div>
+                            </div>
+
+                        </div>         
+                    </div>
+                </div>
+
+                <div class="SMS-ZL"  style="display: none;">
+                    <div style="height: 20px;">
+
+                    </div>
+                    <div>
+                        <div style="display: flex">
+                            <div>资料列表</div>
+                            <div style="background-color: #0066ff; margin-left: 20px; width: 80px; height: 30px; cursor: pointer" onclick="openPop('#pop-upFile')" > <a style="color: white" href="upFile.html" target="_blank">上传资料</a> </div>
+                        </div>
+
+                        <div id="box-ZL">
+                            <div class="SMS-exam1">
+                                <div >
+                                    <table  id="show-ZL" class="showdata">
+
+                                    </table>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="SMS-TK"  style="display: none;">
+
+
+                    <div style="height: 20px;">
+                    </div>
+                    <div>
+                        <div style="display: flex">
+                            <div>题目列表</div>
+                            <div style="background-color: #0066ff; margin-left: 20px; width: 80px; height: 30px; cursor: pointer" ONCLICK="x()" > 选择题 </div>
+                     <!--       <div style="background-color: #0066ff; margin-left: 20px; width: 80px; height: 30px; cursor: pointer" ONCLICK="l()"> 论述题</div>-->
+                            <div style="background-color: #0066ff; margin-left: 20px; width: 80px; height: 30px; cursor: pointer" ONCLICK=""> <a href="makeQuestion.html">创建题目</a> </div>
+                        </div>
+
+                        <div id="box-TKX" style="display: block;">
+                            <div class="SMS-exam1">
+                                <div >
+                                    <table  id="show-TKX" class="showdata">
+
+                                    </table>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div id="box-TKL" style="display: none">
+                            <div class="SMS-exam1">
+                                <div >
+                                    <table  id="show-TKL" class="showdata">
+
+                                    </table>
+                                </div>
+                            </div>
+
+                        </div>
+                        <script>
+
+                        </script>
+                    </div>
+
+
+
+                </div>
+                <div class="SMS-SJ"  style="display: none;">
+
+                </div>
+                <div class="SMS-BZ"  style="display: none;">
+                </div>
+          </div>
+          <div class="SMS-right">
+          </div>
+    </div>
+    <!---创建教室的弹窗-->
+    <div class="Pop-CClass" id="pop-class">
+        <div style="width: 300px; margin: 0 auto; margin-top: 80px;">
+            <label  style="color: aliceblue;" >教室名称:</label>  <input id="className" type="text" style="width: 300px; height: 35px;">
+            <div style="margin-top: 30px;"> 
+                <button style="width: 100px; height: 50px; cursor: pointer; " id="create" onclick="postCreatClass()">创建</button>
+                 <button style="width: 100px; height: 50px; margin-left: 90px; cursor: pointer;" id="clane" >取消</button>
+                 </div>
+        </div>
+    </div>
+    <!--发布作业的弹窗-->
+    <div class="Pop-addWork" id="Pop-work">
+         <p>可发布的作业</p>
+         <div class="SMS-jsc">
+             <div id="showExam">
+                 <div class="SMS-itmC"><input  class="SMS-dataChick" type="checkbox"  value="1" > <span>JavaScript</span></div>
+                 <div class="SMS-itmC"><input  class="SMS-dataChick" type="checkbox"  value="2"> <span class="SMS-span">JavaScript基础知识回答</span></div>
+                 <div class="SMS-itmC"><input  class="SMS-dataChick" type="checkbox"  value="3"> <span class="SMS-span" >JavaScript基础知识回答</span></div>
+                 <div class="SMS-itmC"><input  class="SMS-dataChick" type="checkbox"  value="4"> <span class="SMS-span" >JavaScript基础知识回答</span></div>
+                 <div class="SMS-itmC"><input  class="SMS-dataChick" type="checkbox"  value="5"> <span class="SMS-span" >JavaScript基础知识回答</span></div>
+                 <div class="SMS-itmC"><input  class="SMS-dataChick" type="checkbox"  value="6"> <span class="SMS-span" >JavaScript基础知识回答</span></div>
+                 <div class="SMS-itmC"><input  class="SMS-dataChick" type="checkbox"  value="7"> <span class="SMS-span" >JavaScript基础知识回答</span></div>
+             </div>
+         </div>
+      
+        <button  style="width: 100px; height: 50px; "  onclick="getValue('.SMS-dataChick')">发布作业</button>
+        <button   style="width: 100px; height: 50px; " onclick="closePop('#Pop-work')">取消</button>
+    </div>
+    <!--发布资料的弹窗-->
+    <div class="Pop-addData" id="popzl">
+        <p>可发布的作业</p>
+        <div class="SMS-jsc">
+            <div id="showZl">
+                <div class="SMS-itmC"><input  class="SMS-dataChick" type="checkbox"  value="1" > <span>JavaScript</span></div>
+           <div class="SMS-itmC"><input  class="SMS-dataChick" type="checkbox"  value="2"> <span class="SMS-span">JavaScript基础知识回答</span></div> 
+           <div class="SMS-itmC"><input  class="SMS-dataChick" type="checkbox"  value="3"> <span class="SMS-span" >JavaScript基础知识回答</span></div> 
+           <div class="SMS-itmC"><input  class="SMS-dataChick" type="checkbox"  value="4"> <span class="SMS-span" >JavaScript基础知识回答</span></div> 
+           <div class="SMS-itmC"><input  class="SMS-dataChick" type="checkbox"  value="5"> <span class="SMS-span" >JavaScript基础知识回答</span></div> 
+           <div class="SMS-itmC"><input  class="SMS-dataChick" type="checkbox"  value="6"> <span class="SMS-span" >JavaScript基础知识回答</span></div> 
+           <div class="SMS-itmC"><input  class="SMS-dataChick" type="checkbox"  value="7"> <span class="SMS-span" >JavaScript基础知识回答</span></div> 
+            </div>
+        </div>
+     
+       <button  style="width: 100px; height: 50px; "  onclick="getValue('.SMS-dataChick')">发布作业</button>
+       <button   style="width: 100px; height: 50px; " onclick="closePop('#popzl')">取消</button>
+    </div >
+    <!--查看申请的弹窗-->
+    <div class="Pop-news" id="popNews">
+        <p>学生申请</p>
+        <div class="SMS-jsc">
+            <ul id="ulbox">
+            </ul>
+        </div>
+        <button   style="width: 100px; height: 50px; " onclick="closePop('#popNews')">关闭</button>
+    </div>
+    <!--查看学生的弹窗-->
+    <div class="pop-student" id="pops">
+        <p>学生列表 <button   style="margin-left: 500px; width: 50px; height: 50px;  border-radius:50px; cursor: pointer" onclick="closePop('#pops')">关闭</button></p>
+        <div>
+            <div class="mms-showdata">
+                <div >
+                    <table id="showStudent" class="showdata">
+                        <tr id="title">
+                            <!-- th为表格标题栏-->
+                            <th>sid</th>
+                            <th>姓名</th>
+                            <th>电话</th>
+                            <th>学号</th>
+                            <th>操作</th>
+                        </tr>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <!---创建作业的弹窗-->
+    <div class="Pop-CClass" id="pop-Exam">
+        <div style="width: 300px; margin: 0 auto; margin-top: 80px;">
+            <label  style="color: aliceblue;" >创建作业:</label>  <input id="classExam" type="text" style="width: 300px; height: 35px;">
+            <div style="margin-top: 30px;">
+                <button style="width: 100px; height: 50px; cursor: pointer; " id="createE" onclick="postCreatExam()">创建</button>
+                <button style="width: 100px; height: 50px; margin-left: 90px; cursor: pointer;" id="claneE" >取消</button>
+            </div>
+        </div>
+    </div>
+    <!--创建题目的弹窗-->
+
+    <script>
+
+
+        $(document).ready(function(){
+            getData("getTclss")
+        });
+         $("#myclass").click(function () {
+              $("#SMS-root").empty();
+             refreshData("SMS-root");
+         })
+        $("#myExam").click(function (){
+            GetTExams();
+        })
+        $("#myQuestion").click(function (){
+            GetQuestion();
+        })
+        $("#claneE").click(function (){
+            closePop("#pop-Exam");
+        })
+
+
+        function getData(url){
+            $.ajax({
+                type: "post",
+                url: url,
+                dataType: "json",
+                success: function (response) {
+                    if (response===null) return ;
+                    creatClass(response);
+                }
+            });
+        }
+                 $("#btCClass").click(function(){
+                            
+                            $("#pop-class").css("display","block");
+                 })
+                 $("#clane").click(function(){
+                    $("#className").val(null);
+                    $("#pop-class").css("display","none");
+                 })
+        ///////
+       function change(key,s){
+
+             if(key==="删除教室")
+             {  let data = "cid="+s;
+                 gotoServlet("DelClass",data)
+                 $("#SMS-root").empty();
+                 refreshData("SMS-root");
+             }
+             else if(key ==="发布作业")
+             {
+                 $.ajax({
+                     type: "post",
+                     url: "MyExam",
+                     dataType: "json",
+                     success: function (response) {
+                         if (response===null) return ;
+                         creatExams(response)
+                     }
+                 });
+
+                openPop("#Pop-work");
+             }
+             else if(key ==="发布资料")
+             {
+                openPop("#popzl");
+             }
+             else if(key === "查看学生")
+             {
+                   $("#showStudent").empty();
+                 $.ajax({
+                     type: "post",
+                     url: "getStudents",
+                     data:"cid="+s,
+                     dataType: "json",
+                     success: function (response) {
+                         if (response===null) return ;
+                         creatTablebody(response,"showStudent")
+                     }
+                 });
+
+                 openPop("#pops")
+             }
+             else if(key === "查看详情")
+             {
+
+             }
+             else if (key === "查看申请")
+             {
+                 $.ajax({
+                     type: "post",
+                     url: "getJoinNews",
+                     data:"cid="+s,
+                     dataType: "json",
+                     success: function (response) {
+                         if (response===null) return ;
+                         creatNews(response);
+                     }
+                 });
+                 openPop("#popNews")
+             }
+       }
+        //关闭弹出窗
+          function closePop(S){
+            $(S).css("display","none");
+          }
+          //打开弹窗
+          function openPop(S){
+            $(S).css("display","block");
+          }
+          //左侧按钮
+          function chanceDiv(div){
+            let Smap = [".SMS-JS",".SMS-ZY",".SMS-ZL",".SMS-TK",".SMS-ST",".SMS-SJ"]
+            for(i=0;i<Smap.length;i++)
+
+                if(Smap[i]===div)
+                     {
+                        $(Smap[i]).css("display","block");
+                     }
+                 else{
+                    $(Smap[i]).css("display","none");
+                 }
+          }
+                 function creatClass(response){
+
+                     let  classTButton = ["删除教室","发布作业","发布资料","查看申请","查看学生","查看详情"];
+                     let root = $("#SMS-root");
+                          root.empty();
+                      $($.each(response,function (indexInArray, valueOfElement) {
+                          let nodeitem2 = $("<div class='SMS-item2'></div>");
+                          let nodeitem3 = $("<div class='SMS-item3'></div>");
+                          let nodep     =$("<p>"+valueOfElement.cname+"_____加入编号："+valueOfElement.cid+"</p>");
+                          let nodeitem4 = $("<div class='SMS-item4'></div>");
+                          for (i=0;i<classTButton.length;i++)
+                          {
+                              let nodeitemB = $("<div class='SMS-itemB' value='"+valueOfElement.cid +"'>"+classTButton[i]+"</div>");
+                              nodeitemB.click(function (){
+                                  let key = this.innerText;
+                                  let nodeClass = this.getAttribute("value");
+                                  console.log(nodeClass);
+                                  let IDname
+                                  console.log(key,nodeClass);
+                                  change(key,nodeClass);
+                              })
+                              nodeitem4.append(nodeitemB);
+                          }
+                          nodeitem3.append(nodep);
+                          nodeitem3.append(nodeitem4);
+                          nodeitem2.append(nodeitem3);
+                          root.append(nodeitem2);
+                      }))
+                     /*
+                                 <div class="SMS-item2" >
+                                     <div class="SMS-item3">
+                                        <p>计算机科学与技术五班</p>
+                                        <div class="SMS-item4">
+                                           <div class="SMS-itemB">发布考试</div>
+                                           <div  class="SMS-itemB">发布作业</div>
+                                           <div  class="SMS-itemB">发布资料</div>
+                                           <div  class="SMS-itemB">查看申请</div>
+                                           <div  class="SMS-itemB">查看学生</div>
+                                           <div  class="SMS-itemB">查看详情</div>
+                                        </div>
+                                      </div>
+                                    </div>
+               */
+                 }
+                 function fillPOP(POPname)
+                 {
+
+                 }
+                 function fillExam(response,PopName){};
+                 //提交教室
+                 function postCreatClass(){
+                     let value = $("#className").val();
+                     if (value =="")
+                     {
+                         alert("名字不能为空！")
+                         return ;
+                     }
+                     console.log(value);
+                     reg=/[`~!@#$%^&*()_+<>?:"{},.\/;'[\]]/im;
+                     if (reg.test(value))
+                     {   alert("请不要输入特殊字符");
+                         return
+                     }
+                     let data = "cname="+value;
+                     $.ajax({
+                         type:"post",
+                         data:data,
+                         url:"CreatClass",
+                         success:function (response){
+                             let fl  =response.toString();
+                             if (fl==1)
+                             {
+                                 alert("创建成功！")
+                                 $("#pop-class").css("display","none")
+                                 getData("getTclss");
+
+                             }
+                             else if (fl==-1) {
+                                 alert("创建失败！");
+
+                             }
+                         }
+                     })
+                     $("#className").val(null);
+                 }
+//创建条目，可向后台发送信息的条目 ，news
+               function creatNews(response){
+
+                   let root = $("#ulbox");
+                   root.empty();
+                   let nodeli = $("<li><div>姓名</div> <div>操作</div> </li>");
+                   root.append(nodeli);
+                   $($.each(response, function (indexInArray, valueOfElement) {
+                       let node = $("<li></li>")
+                       let  divnode  = $("<div>"+ valueOfElement.name+"</div>");
+                           let key ="newsid="+valueOfElement.newsid;
+                           let nodea = $("<div class='btplane'></div>")
+                           let btok  = $("<div class='bt3' value='"+key+"'>同意</div>")
+                           let btno  = $("<div class='bt3' value='"+key+"'>拒绝</div>")
+                           btok.click(function (){
+
+                               let key = this.innerText;
+                               let nodeClass = this.getAttribute("value");
+                               console.log(nodeClass);
+                               let IDname
+                               console.log(key);
+                               change1(key,nodeClass);
+
+
+                           })
+                       btno.click(function () {
+                           let key = this.innerText;
+                           let nodeClass = this.getAttribute("value");
+                           console.log(nodeClass);
+                           let IDname
+                           console.log(key);
+                           change1(key,nodeClass);
+                       })
+
+                           nodea.append(btok);
+                           nodea.append(btno);
+                           node.append(divnode);
+                           node.append(nodea);
+                       root.append(node);
+                   }))
+               }
+//创建资料条目，可向后台发送要添加资料
+               function creatZl(response){};
+               function change1(s,key){
+                     let sta = null;
+                     if (s=="同意")
+                     {
+                           sta = "YES";
+                     }
+                     else if (s=="拒绝")
+                     {
+                          sta = "NO"
+                      }
+                     let data = key+"&&sta="+sta;
+                     console.log(data);
+                     gotoServlet("DealNews",data)
+
+               }
+//创建可发布的作业
+               function  creatExams(response){
+               let root =  $("#showExam");
+               root.empty();
+               //    <div class="SMS-itmC">
+                   //    <input  class="SMS-dataChick" type="checkbox"  value="2">
+                   //    <span class="SMS-span">JavaScript基础知识回答</span>
+                   //    </div>
+                   $($.each(response, function (indexInArray, valueOfElement) {
+                       let node = $("<div class='SMS-itmC'></div>")
+                       let  inputNode  = $("<input class='SMS-dataChick' type='checkbox' value='"+valueOfElement.eid+"'>");
+                       let spanNode    = $("<span class='SMS-span' >"+valueOfElement.ename+"</span>");
+                       node.append(inputNode);
+                       node.append(spanNode);
+                       root.append(node);
+                   }))
+               }
+               function gotoServlet(url,data,f)
+               {   console.log("哈哈");
+                   $.ajax({
+                       type: "post",
+                       url: url,
+                       data:data,
+                       dataType: "json",
+                       success: function (response) {
+
+                           Showtips(response);
+                       }
+                   });
+               }
+               function Showtips(s,){
+                   alert("消息以发送！")
+                   if (s==1)
+                   {
+                       return
+                   }
+                   else if (s==-1) {
+                       alert("发送失败")
+                       return
+                   }
+               }
+               TestS = [{"sid":"15","name":"SA某人","phone":"12312344","stuid":"2020211402"}];
+
+      function creatTablebody(dataset,id,kid){
+          $("#id").empty();
+            console.log(JSON.stringify(dataset));
+            let siz = Object.getOwnPropertyNames(dataset[0]).length;
+            let velus = Object.keys(dataset[0]);
+            let len =  dataset.length;
+            let showdata = $("#"+id);
+            for(i=0;i<len;i++)
+            {
+                var tr = $("<tr></tr>");
+                for(j=0;j<siz;j++)
+                { let td     = $("<td></td>");
+                    td.append(dataset[i][velus[j]]) ;
+                    tr.append(td)
+                }
+                let tda     = $("<td></td>");
+                let btp     = $("<div style='display: flex'></div>")
+                let bt1     = $("<div style='margin: 8px;width: 50px;background-color: #0066ff; cursor: pointer;'   value='"+ dataset[i][velus[0]]+"'>查看</div>");
+                let bt2     = $("<div value='"+ dataset[i][velus[0]]+"'>删除</div>");
+                bt1.click(function () {
+                    sid = this.getAttribute("value");
+                    console.log(sid +"学生id");
+                    gotoServlet("SeeStudent","sid="+sid)
+                })
+                bt2.click(function (){
+
+                    sid = this.getAttribute("value");
+                    console.log(sid +"学生id");
+                    gotoServlet("delStudent","sid="+sid)
+                })
+
+                btp.append(bt1);
+                btp.append(bt2);
+
+                tda.append(btp);
+                tr.append(tda);
+                showdata.append(tr);
+            }
+        }
+        function refreshData(s){
+            let key = `#${s}`;
+
+            if (s=="SMS-root")
+            {
+                getData("getTclss");
+
+            }
+        }
+
+
+        function GetTExams()
+        {
+            $.ajax({
+                type: "post",
+                url: "MyExam",
+                dataType: "json",
+                success: function (response) {
+                    if (response===null) return ;
+                    CreatBoxExam(response,"#showExamT")
+                }
+            });
+         }
+         function GetQuestion(){
+             $.ajax({
+                 type: "post",
+                 url: "getQX",
+                 dataType: "json",
+                 success: function (response) {
+                     if (response===null) return ;
+                     CreatBoxQuestionX(response,"#show-TKX");
+                 }
+             })
+         }
+
+        function GetQuestionL(){
+            $.ajax({
+                type: "post",
+                url: "getQL",
+                dataType: "json",
+                success: function (response) {
+                    if (response===null) return ;
+                    CreatBoxQuestionL(response,"#show-TKL");
+                }
+            })
+        }
+         function  CreatTitle(TS,id){
+            let t = $(id);
+            let tr = $("<tr></tr>"),
+                i;
+            for (i=0;i<TS.length;i++)
+            {
+                let th = $("<th></th>");
+                th.append(TS[i]);
+                tr.append(th);
+            }
+            t.append(tr);
+        }
+ //创建作业列表
+        function CreatBoxExam(dataset,id,kid){
+
+              $(id).empty();
+            CreatTitle(["序号","作业名","创建时间","操作"],id)
+
+            console.log(JSON.stringify(dataset));
+            let siz = Object.getOwnPropertyNames(dataset[0]).length;
+            let velus = Object.keys(dataset[0]);
+            let len =  dataset.length;
+            let showdata =  $(id);
+            for(i=0;i<len;i++)
+            {
+                let tr =$("<tr></tr>");
+                for(j=0;j<siz;j++)
+                { let td     =$("<td></td>");
+                if (velus[j]=="tid")
+                {
+                    continue;
+                }
+                    td.append(dataset[i][velus[j]])
+                    tr.append(td);
+                }
+                let tdaction    = $("<td></td>");
+                //添加操作按钮按钮
+                let bt1 = $("<div class='Tablebt1' value='"+dataset[i][velus[0]]+"'>删除</div>");
+                let bt2 =  $("<div class='Tablebt1' value='"+dataset[i][velus[0]]+"'></div>");
+                let s   = "Control?eid="+dataset[i][velus[0]]+"&kid=doExam";
+                let a   = $("<a href='"+s+"'>编辑</a>>");
+                bt2.append(a);
+                bt1.click(function(){
+                    let key = this.innerText;
+                    let value = this.getAttribute("value");
+                    console.log(value);
+                    console.log(key,value);
+                    let data = "eid="+value;
+                    let url ="DelExam";
+                  gotoServlet(url,data);
+
+                })
+
+                //
+                tdaction.append(bt1);
+                tdaction.append(bt2);
+                tr.append(tdaction);
+                showdata.append(tr);
+            }
+        }
+       function postCreatExam(){
+           let value = $("#classExam").val();
+           if (value =="")
+           {
+               alert("名字不能为空！")
+               return ;
+           }
+           console.log(value);
+           reg=/[`~!@#$%^&*()_+<>?:"{},.\/;'[\]]/im;
+           if (reg.test(value))
+           {   alert("请不要输入特殊字符");
+               return;
+           }
+           let data = "ename="+value;
+           $.ajax({
+               type:"post",
+               data:data,
+               url:"creatExam",
+               success:function (response){
+                   let fl  =response.toString();
+                   if (fl==1)
+                   {
+                       alert("创建成功！")
+                       GetTExams();
+                       $("#pop-Exam").css("display","none")
+
+                   }
+                   else if (fl==-1) {
+                       alert("创建失败！");
+
+                   }
+               }
+           })
+           $("#classExam").val(null);
+
+       }
+//创建题库列表
+
+      //  CreatBoxFile(tetsm,"#show-ZL")
+        //创建资料
+        function CreatBoxFile(dataset,id,kid){
+
+            $(id).empty();
+            CreatTitle(["序号","名称","类型","创建时间","操作"],id)
+
+            console.log(JSON.stringify(dataset));
+            let siz = Object.getOwnPropertyNames(dataset[0]).length;
+            let velus = Object.keys(dataset[0]);
+            let len =  dataset.length;
+            let showdata =  $(id);
+            for(i=0;i<len;i++)
+            {
+                let tr =$("<tr></tr>");
+                for(j=0;j<siz;j++)
+                { let td     =$("<td></td>");
+                    if (velus[j]=="tid")
+                    {
+                        continue;
+                    }
+                    td.append(dataset[i][velus[j]])
+                    tr.append(td);
+                }
+                let tdaction    = $("<td></td>");
+                //添加操作按钮按钮
+                let bt1 = $("<div class='Tablebt1' value='"+dataset[i][velus[0]]+"'>删除</div>");
+                let bt2 =  $("<div class='Tablebt1' value='"+dataset[i][velus[0]]+"'>编辑</div>");
+                bt1.click(function(){
+                    let key = this.innerText;
+                    let value = this.getAttribute("value");
+                    console.log(value);
+                    console.log(key,value);
+                    let data = "zid="+value;
+                    let url ="";
+                    gotoServlet(url,data);
+                })
+                bt2.click(function(){
+                    let key = this.innerText;
+                    let value = this.getAttribute("value");
+                    console.log(value);
+                    console.log(key,value);
+                    let data = "zid="+value;
+                    let url ="";
+                    gotoServlet(url,data);
+                })
+                //
+                tdaction.append(bt1);
+                tdaction.append(bt2);
+                tr.append(tdaction);
+                showdata.append(tr);
+            }
+        }
+//创建题库列表  选择题列表 填空题列表
+       // CreatBoxQuestionL(dataset,"#show-TKL");
+        function CreatBoxQuestionX(dataset,id,kid){
+            $(id).empty();
+            CreatTitle(["题id","名称","类型","选项A","选项B","选项C","选项D","答案","操作"],id)
+            console.log(JSON.stringify(dataset));
+            let siz = Object.getOwnPropertyNames(dataset[0]).length;
+            let velus = Object.keys(dataset[0]);
+
+            let len =  dataset.length;
+            let showdata =  $(id);
+            for(i=0;i<len;i++)
+            {
+                let tr =$("<tr></tr>");
+                for(j=0;j<siz;j++)
+                { let td     =$("<td></td>");
+
+                if ( velus[j]==="qdiff" ||velus[j]==="tid" )
+                {  console.log(velus[j]);
+
+                }
+                  else
+                {
+                    td.append(dataset[i][velus[j]])
+                    tr.append(td);
+                }
+
+                }
+                let tdaction    = $("<td></td>");
+                //添加操作按钮按钮
+                let bt1 = $("<div class='Tablebt1' value='"+dataset[i][velus[0]]+"'>删除</div>");
+                let bt2 =  $("<div class='Tablebt1' value='"+dataset[i][velus[0]]+"'>编辑</div>");
+                bt1.click(function(){
+                    let key = this.innerText;
+                    let value = this.getAttribute("value");
+                    console.log(value);
+                    console.log(key,value);
+                    let data = "qid="+value;
+                    let url ="delql";
+                    gotoServlet(url,data);
+
+                })
+                bt2.click(function(){
+                    let key = this.innerText;
+                    let value = this.getAttribute("value");
+                    console.log(value);
+                    console.log(key,value);
+                    let data = "qid="+value;
+                    let url ="";
+
+                    gotoServlet(url,data);
+                })
+                //
+                tdaction.append(bt1);
+                tdaction.append(bt2);
+                tr.append(tdaction);
+                showdata.append(tr);
+            }
+        }
+        function CreatBoxQuestionL(dataset,id,kid){
+            $(id).empty();
+            CreatTitle(["题id","题目","类型","操作"],id)
+            console.log(JSON.stringify(dataset));
+            let siz = Object.getOwnPropertyNames(dataset[0]).length;
+            let velus = Object.keys(dataset[0]);
+            let len =  dataset.length;
+            let showdata =  $(id);
+            for(i=0;i<len;i++)
+            {
+                let tr =$("<tr></tr>");
+                for(j=0;j<siz;j++)
+                { let td     =$("<td></td>");
+                    if (velus[j]=="tid")
+                    {
+                        continue;
+                    }
+                    td.append(dataset[i][velus[j]])
+                    tr.append(td);
+                }
+                let tdaction    = $("<td></td>");
+                //添加操作按钮按钮
+                let bt1 = $("<div class='Tablebt1' value='"+dataset[i][velus[0]]+"'>删除</div>");
+                let bt2 =  $("<div class='Tablebt1' value='"+dataset[i][velus[0]]+"'>编辑</div>");
+                bt1.click(function(){
+                    let key = this.innerText;
+                    let value = this.getAttribute("value");
+                    console.log(value);
+                    console.log(key,value);
+                    let data = "wqid="+value;
+                    let url ="delqw";
+                    gotoServlet(url,data);
+
+                })
+                bt2.click(function(){
+                    let key = this.innerText;
+                    let value = this.getAttribute("value");
+                    console.log(value);
+                    console.log(key,value);
+                    let data = "wqid="+value;
+                    let url ="";
+
+                    gotoServlet(url,data);
+                })
+                //
+                tdaction.append(bt1);
+                tdaction.append(bt2);
+                tr.append(tdaction);
+                showdata.append(tr);
+            }
+        }
+        function x(){
+            $("#box-TKX").css("display","block");
+            $("#box-TKL").css("display","none");
+            GetQuestion();
+        }
+        function l(){
+            $("#box-TKL").css("display","block");
+            $("#box-TKX").css("display","none");
+            GetQuestionL()
+        }
+
+        </script>
+
+
+</body>
+</html>

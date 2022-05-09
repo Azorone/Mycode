@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="JS/jquery-3.6.0.js"></script>
+</head>
+<body>
+        <div style="width: 800px; height: 500px; margin: 0 auto; background: #0066ff; border-radius: 15px; text-align: center">
+                <h2 id="m" style="font-size: 50px; color: white" >成功！</h2>
+
+                 <div style="width: 600px; margin: 0 auto; display: flex;">
+                       <div style="font-size: 50px; margin: 50px"> <a style="color: white;" href="upFile.html">继续上传</a></div>
+                      <div style="font-size: 50px;"> <a style="color: white;" href="Teacher.html">返回主页</a></div>>
+                 </div>
+
+        </div>
+</body>
+
+
+<SCRIPT>
+
+
+   kid = GetQueryString("kid");
+   if (kid==1)
+   {      $("#m").empty();
+       $("#m").append("成功");
+   }
+   else  if (kid==0)
+   {
+       $("#m").empty();
+       $("#m").append("失败");
+   }
+
+    function GetQueryString(name)
+    {
+        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if(r!=null)return  unescape(r[2]);
+        return null;
+    }
+
+</SCRIPT>
+</html>

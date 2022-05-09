@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sms.dao.ClstDao">
+    <!--添加学生教室-->
+    <insert id="addclast" parameterType="sms.pojo.Clst">
+        insert into clst (sid, cid) VALUE (#{sid},#{cid});
+    </insert>
+    <!--删除学生教室-->
+    <delete id="delClast" parameterType="int" >
+        delete from clst where cid=#{cid} and sid=#{sid};
+    </delete>
+    <!--查询学生是否以经加入 获取一个-->
+    <select id="getClst" parameterType="int" resultType="sms.pojo.Clst">
+        select * from clst  where cid=#{cid} and sid=#{sid};
+    </select>
+    <!--获取学生加入的教室-->
+    <select id="getCid"  resultType="int" parameterType="int">
+        select cid from clst where sid=#{sid};
+    </select>
+    <!--获取这个教室的学生-->
+    <select id="getSid" parameterType="int" resultType="int">
+        select sid from clst where cid=#{cid};
+    </select>
+
+    <delete id="dissolveClass" parameterType="int">
+        delete from clst where cid=#{cid};
+    </delete>
+</mapper>

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <link rel="stylesheet" href="CSS/Student.css">
+</head>
+<body style="background-color: azure; margin: 0px;">
+    <div style="position:fixed; background-color: rgb(20, 29, 49); width: 100%; display: flex; justify-content: right;">
+        <div style="width: 25%;">
+            <div>
+                <p style="color:aliceblue; font-size: 20px;">欢迎使用猫咪教室</p>
+            </div>
+           
+        </div> 
+        <div style="width: 50%;">
+
+        </div>
+        <div style="margin-top: 10px;">
+            <input type="text" placeholder="输入编号加入教室" style="width: 300px; height:80%; outline-style: none;" id="joinClass"> <input type="button" value="加入教室"  style="height: 40px; border-style: none; outline-style: none; margin-right: 40px;" onclick="joinClass()">
+        </div>
+      </div> 
+    
+      <div style="width: 100%; height: 100%;display: flex; justify-content: center; ">
+          <div style="width: 70%;  background-color: rgb(94, 124, 155); padding-bottom: 20px; padding-top: 50px; " id="SMS-showClass">
+    </div>
+    <div class="pop-box" id="pop-box">
+        <p>我的作业</p>
+        <div class="SMS-jsc">
+            <div class="Pop-Data" id="pop-data">
+                    <ul id="ulbox">
+
+
+                    </ul>
+            </div>
+        </div>
+
+        <button  style="width: 100px; height: 50px; " onclick="closPop('pop-box')">关闭</button>
+    </div>
+
+    <script src="JS/jquery-3.6.0.js"></script>
+    <script>
+
+        $(document).ready(function(){
+            getData("sms-getClass")
+        });
+
+        var  JsonTest1 = [{"eid":"1","tid":"8","ename":"第一次试卷","etime":"2022-04-28","score":"-1","seid":"1"}];
+        var  JsonTest = [{"cid":"4","cname":"计算机科学与技术五班","cnumber":"0","tid":"16","cdescribe":"用于测试的班级样例","ccode":"4567"},{"cid":"4","cname":"计算机科学与技术五班","cnumber":"0","tid":"16","cdescribe":"用于测试的班级样例","ccode":"4567"},{"cid":"4","cname":"计算机科学与技术五班","cnumber":"0","tid":"16","cdescribe":"用于测试的班级样例","ccode":"4567"}];
+        var buttonA   = ["作业","教学资料","同学录","在线考试","知识练习","课程题库","成绩查看"];
+       $(".sms-cardButton").click(function(){
+            let key = this.innerText;
+            let k = this.getAttribute("value");
+            console.log(k);
+            let IDname
+           change(key,k);
+            console.log(key);
+
+       })
+       function change(key,k){
+           console.log(k);
+             if(key==="教学资料")
+             {
+                
+             }
+             else if(key ==="作业")
+             {
+
+
+
+                 $.ajax({
+                     type: "post",
+                     url: "getStudentExam",
+                     data:"cid="+k,
+                     dataType: "json",
+                     success: function (response) {
+                         if (response===null) return ;
+                         creatList1(response);
+                     }
+                 });
+                   onpenPop("pop-box");
+
+             }
+             else if(key ==="同学录")
+             {
+
+             }
+             else if(key === "在线考试")
+             {
+
+             }
+             else if(key === "知识练习")
+             {
+
+             }
+       }
+
+        function getData(url){
+          $.ajax({
+              type: "post",
+              url: url,
+              dataType: "json",
+              success: function (response) {
+                  if (response===null) return ;
+                creatClass(response,"SMS-showClass",buttonA)
+              }
+          });
+        } 
+        //创建教室函数 response 后端返回的数据 DivID 容器 buttonArry 按钮数组
+        function creatClass(response,DivID,buttonArry){
+           let Tager = `#${DivID}`;
+           let size = response.length;
+           console.log("数组的大小是："+size);
+           $($.each(response, function (indexInArray, valueOfElement) { 
+                  let nodeRoot = $(Tager);
+                  let nodeOne     = $("<div class='sms-cardC'></div>");
+                  let nodeP       = $("<p class='p1'>"+valueOfElement.cname+"<p>")
+                  let nodeCard    = $("<div class='sms-card'></div>")
+                   for( i =0;i<buttonArry.length;i++) 
+                   {
+                         let button    = $("<div class='sms-cardButton' value= '"+ valueOfElement.cid+"'>"+ buttonArry[i]+ "</div>");
+                         button.click(function(){
+            let key = this.innerText;
+            let nodeClass = this.getAttribute("value");
+            console.log(nodeClass);
+            console.log(key);
+            change(key,nodeClass);
+       })
+                         nodeCard.append(button);
+                   }
+                  nodeOne.append(nodeP);
+                  nodeOne.append(nodeCard);
+                  nodeRoot.append(nodeOne);
+           }))
+
+
+        }
+
+        //查看教室学生
+        function onpenPop(S){
+           let id = `#${S}`
+           $(id).css("display","block");
+        }
+        function closPop(S){
+            let id = `#${S}`
+            $(id).css("display","none");
+        }
+       function fillpop(url){
+           $.ajax({
+               type: "post",
+               url: url,
+               dataType: "json",
+               success: function (response) {
+                   if (response===null) return ;
+
+               }
+           });
+       }
+      function creatList1(response){
+           let root = $("#ulbox");
+           let nodeli = $("<li><div>名称</div> <div>发布时间</div><div>截止时间</div><div>完成情况</div></li>");
+           root.append(nodeli);
+           $($.each(response, function (indexInArray, valueOfElement) {
+                     let node = $("<li></li>")
+                     let  divnode  = $("<div>"+ valueOfElement.ename+"</div>");
+                     let  divnode2 = $("<div>"+valueOfElement.etime+"</div>");
+                     let  divnode3;
+                     if (valueOfElement.score>=0)
+                     {
+                         divnode3= $("<div>"+valueOfElement.score+"</div>");
+                     }
+                     else {
+                         divnode3=$("<div class='li-bt'></div>")
+                         let key ="eid="+valueOfElement.eid+"&&seid="+valueOfElement.seid+"&&kid=studentExam";
+                         let nodea = $("<a href='Control?"+key+"'>去完成</a>")
+                         divnode3.append(nodea);
+                     }
+                     node.append(divnode);
+                     node.append(divnode2);
+                     node.append(divnode3);
+                   root.append(node);
+           }))
+       }
+       function creatList2(){
+        }
+        function createCbox(){
+        }
+        function joinClass()
+        {
+          let cid=  $("#joinClass").val();
+          if (chick(cid))
+          {        let p = "cid="+cid;
+                   let url = "JoinClass"
+                   gotoServlet(url,p)
+          }
+        }
+        function chick(value)
+        { reg=/[`~!@#$%^&*()_+<>?:"{},.\/;'[\]]/im;
+            if (value==null)
+            {   alert("请输入要加入的教室编号");
+                return false;
+            }else
+            if (value==undefined)
+            {   alert("错误");
+                return false;
+            } else
+            if (value=="")
+            {alert("请输入要加入的教室编号");
+                return false;
+            }
+            else if (reg.test(value))
+            {   alert("请不要输入特殊字符");
+                return false;
+            }
+            else if (value==" ")
+            {   alert("请输入要加入的教室编号");
+                return false;
+            }
+            return true;
+        }
+        //发送而不处理
+        function gotoServlet(url,data,f)
+        {
+            $.ajax({
+                type: "post",
+                url: url,
+                data:data,
+                dataType: "json",
+                success: function (response) {
+
+                   Showtips(response);
+                }
+            });
+        }
+        function Showtips(s){
+           alert("消息以发送！")
+            if (s==1)
+            {
+                return
+            }
+            else if (s==-1) {
+                alert("发送失败")
+                return
+            }
+        }
+    </script>
+</body>
+</html>

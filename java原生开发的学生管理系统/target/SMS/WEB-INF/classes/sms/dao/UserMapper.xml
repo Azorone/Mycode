@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sms.dao.UserDao">
+
+    <!--获取用户-->
+    <select id="getUser" resultType="sms.pojo.User" parameterType="map">
+         select * from user where account = #{account} AND pass = #{pass};
+    </select>
+    <!--获取权限等级-->
+    <select id="getUserPre" resultType="int" parameterType="int" >
+        select per from user where id=#{key};
+    </select>
+    <!--获取用户id-->
+    <select id="getUserId" resultType="int" parameterType="map">
+        select id from user where account=#{account} AND pass =#{pass};
+    </select>
+    <!--删除用户-->
+    <delete id="delUser" parameterType="int">
+        delete from user where id = #{id};
+    </delete>
+    <!--修改用户-->
+    <update id="updateUserPass" parameterType="map" >
+        update user set pass=#{pass} where id=#{id};
+    </update>
+    <!--添加用户-->
+    <insert id="addUser" parameterType="sms.pojo.User" >
+        insert into user  (account,pass,per) values(#{account},#{pass},#{per});
+    </insert>
+     <select id="chickExist" resultType="sms.pojo.User" parameterType="java.lang.String">
+         select * from user where account=#{account}
+     </select>
+</mapper>
